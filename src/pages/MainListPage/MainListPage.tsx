@@ -1,5 +1,5 @@
-import React from "react";
-import HelloComponent from "../../components/HelloComponent/HelloComponent";
+import React from 'react'
+import HelloComponent from '../../components/HelloComponent/HelloComponent'
 
 const MainListPage = (): JSX.Element => {
   return (
@@ -7,7 +7,7 @@ const MainListPage = (): JSX.Element => {
       <h1> Main list page</h1>
       <HelloComponent />
     </>
-  );
-};
+  )
+}
 
-export default MainListPage;
+export default MainListPage
