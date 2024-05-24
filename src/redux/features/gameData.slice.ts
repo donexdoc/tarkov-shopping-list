@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { Item } from '../../store/types/item'
-import { Task } from '../../store/types/task'
-import { TaskItem } from '../../store/types/taskItem'
-import { Trader } from '../../store/types/trader'
+import { Item } from '@/store/types/item'
+import { Task } from '@/store/types/task'
+import { TaskItem } from '@/store/types/taskItem'
+import { Trader } from '@/store/types/trader'
 
 interface IInitialState {
   items: Item[]

@@ -1,5 +1,10 @@
-import { AppLayoutProviderProps } from "./AppLayoutProvider.props";
+import { ReduxProvider } from '@/redux/provider'
+import { AppLayoutProviderProps } from './AppLayoutProvider.props'
 
 export const AppLayoutProvider = ({ children }: AppLayoutProviderProps) => {
-  return <> {children}</>;
-};
+  return (
+    <>
+      <ReduxProvider>{children}</ReduxProvider>
+    </>
+  )
+}

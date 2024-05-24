@@ -1,5 +1,4 @@
-import React from 'react'
-import HelloComponent from '../../components/HelloComponent/HelloComponent'
+import HelloComponent from '@/components/HelloComponent/HelloComponent'
 
 const MainListPage = (): JSX.Element => {
   return (

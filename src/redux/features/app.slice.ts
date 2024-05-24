@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { APP_TITLE, PAGES } from '../../store/constatnts'
+import { APP_TITLE, PAGES } from '@/store/constatnts'
 
 interface IInitialState {
   drawerState: boolean
