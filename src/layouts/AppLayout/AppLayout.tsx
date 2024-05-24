@@ -1,5 +1,6 @@
+import { AppLayoutProvider } from '@/providers/AppLayoutProvider/AppLayoutProvider'
 import { AppLayoutProps } from './AppLayoutProps'
 
 export const AppLayout = ({ children }: AppLayoutProps): JSX.Element => {
-  return <div>{children}</div>
+  return <AppLayoutProvider>{children}</AppLayoutProvider>
 }

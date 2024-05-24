@@ -4,6 +4,8 @@ import { Task } from '@/store/types/task'
 import { TaskItem } from '@/store/types/taskItem'
 import { Trader } from '@/store/types/trader'
 
+import itemsJson from '@/store/data/ru/items.json'
+
 interface IInitialState {
   items: Item[]
   tasks: Task[]
@@ -12,7 +14,7 @@ interface IInitialState {
 }
 
 const initialState: IInitialState = {
-  items: [],
+  items: itemsJson as Item[],
   tasks: [],
   taskItems: [],
   traders: [],

@@ -9,5 +9,5 @@ export interface Task {
   trader: Pick<Trader, 'id'>
   kappaRequired: boolean
   taskImageLink: string
-  objectives: TaskObjective[] | TaskObjectiveItem[]
+  objectives?: TaskObjective[] | TaskObjectiveItem[]
 }
