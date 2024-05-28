@@ -5,6 +5,9 @@ import { TaskItem } from '@/store/types/taskItem'
 import { Trader } from '@/store/types/trader'
 
 import itemsJson from '@/store/data/ru/items.json'
+import tasksJson from '@/store/data/ru/tasks.json'
+import tradersJson from '@/store/data/ru/traders.json'
+import taskItemsJson from '@/store/data/taskItems.json'
 
 interface IInitialState {
   items: Item[]
@@ -15,9 +18,9 @@ interface IInitialState {
 
 const initialState: IInitialState = {
   items: itemsJson as Item[],
-  tasks: [],
-  taskItems: [],
-  traders: [],
+  tasks: tasksJson as Task[],
+  taskItems: taskItemsJson as TaskItem[],
+  traders: tradersJson as Trader[],
 }
 
 export const gameDataSlice = createSlice({
