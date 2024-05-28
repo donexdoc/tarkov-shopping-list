@@ -1,16 +1,18 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { APP_TITLE, PAGES } from '@/store/constatnts'
+import { APP_TITLE, LANGUAGES, PAGES } from '@/store/constatnts'
 
 interface IInitialState {
   drawerState: boolean
   currentPage: PAGES
   appTitle: string
+  language: string
 }
 
 const initialState: IInitialState = {
   drawerState: false,
   currentPage: PAGES.mainList,
   appTitle: APP_TITLE,
+  language: LANGUAGES.EN,
 }
 
 export const appSlice = createSlice({
@@ -29,6 +31,9 @@ export const appSlice = createSlice({
     setAppTitle: (state, action: PayloadAction<string>) => {
       state.appTitle = action.payload
     },
+    setLanguage: (state, action: PayloadAction<LANGUAGES>) => {
+      state.language = action.payload
+    },
   },
 })
 
@@ -37,5 +42,6 @@ export const {
   toggleDrawerState,
   setCurrentPage,
   setAppTitle,
+  setLanguage,
 } = appSlice.actions
 export default appSlice.reducer

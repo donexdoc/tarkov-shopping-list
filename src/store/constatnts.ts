@@ -6,3 +6,8 @@ export const enum PAGES {
   mainList = 'mainList',
   about = 'about',
 }
+
+export enum LANGUAGES {
+  RU = 'ru',
+  EN = 'en',
+}
