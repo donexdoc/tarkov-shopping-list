@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useSelector } from 'react-redux'
 import appReducer from './features/app.slice'
-import gameDataReducer from './features/itemsData.slice'
+import itemsDataReducer from './features/itemsData.slice'
 
 export const store = configureStore({
   reducer: {
     appReducer,
-    gameDataReducer,
+    itemsDataReducer,
   },
   devTools: process.env.NODE_ENV === 'development',
 })

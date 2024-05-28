@@ -1,57 +1,34 @@
-import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { Item } from '@/store/types/item'
 import { LANGUAGES } from '@/store/constatnts'
 
 import itemsDataJson from '@/store/data/en/items.json'
+import {
+  GameDataInitialState,
+  createGameDataSlice,
+  createLoadElements,
+} from './gameData.slice'
 
-interface IInitialState {
-  items: Item[]
-  loading: boolean
-  error: string | null
-  language: LANGUAGES
-}
-
-const initialState: IInitialState = {
-  items: itemsDataJson as Item[],
+const initialState: GameDataInitialState<Item> = {
+  elements: itemsDataJson as Item[],
   loading: false,
   error: null,
   language: LANGUAGES.EN,
 }
 
-export const loadItems = createAsyncThunk(
-  'gameData/loadItems',
-  async (language: LANGUAGES) => {
-    let itemsJson
-    if (language === LANGUAGES.RU) {
-      itemsJson = await import('@/store/data/ru/items.json')
-    } else {
-      itemsJson = await import('@/store/data/en/items.json')
-    }
-    return itemsJson.default as Item[]
+const importItems = async (language: LANGUAGES) => {
+  if (language === LANGUAGES.RU) {
+    return await import('@/store/data/ru/items.json')
+  } else {
+    return await import('@/store/data/en/items.json')
   }
+}
+
+export const loadItems = createLoadElements<Item>('itemsData', importItems)
+
+export const itemsDataSlice = createGameDataSlice<Item, typeof loadItems>(
+  'itemsData',
+  loadItems,
+  initialState
 )
 
-export const gameDataSlice = createSlice({
-  name: 'gameData',
-  initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(loadItems.pending, (state) => {
-      state.loading = true
-      state.error = null
-    })
-    builder.addCase(
-      loadItems.fulfilled,
-      (state, action: PayloadAction<Item[]>) => {
-        state.items = action.payload
-        state.loading = false
-      }
-    )
-    builder.addCase(loadItems.rejected, (state, action) => {
-      state.loading = false
-      state.error = action.error.message || 'Failed to load items'
-    })
-  },
-})
-
-export default gameDataSlice.reducer
+export default itemsDataSlice.reducer

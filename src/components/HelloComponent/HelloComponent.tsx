@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 const HelloComponent = (): JSX.Element => {
-  const items = useAppSelector((state) => state.gameDataReducer.items)
+  const items = useAppSelector((state) => state.itemsDataReducer.elements)
 
   useEffect(() => {
     console.log(items)
