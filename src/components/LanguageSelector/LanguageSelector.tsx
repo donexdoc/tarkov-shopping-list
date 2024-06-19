@@ -1,0 +1,52 @@
+import { setLanguage } from '@/redux/features/app.slice'
+import { AppDispatch, useAppSelector } from '@/redux/store'
+import { LANGUAGES } from '@/store/constatnts'
+import { Translate } from '@mui/icons-material'
+import { Box, Button, Menu, MenuItem } from '@mui/material'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+
+const LanguageSelector = (): JSX.Element => {
+  const dispatch = useDispatch<AppDispatch>()
+  const language = useAppSelector((store) => store.appReducer.language)
+
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+
+  const changeLanguage = (newLanguage: LANGUAGES) => {
+    dispatch(setLanguage(newLanguage))
+
+    handleCloseSelect()
+  }
+
+  const handleCloseSelect = () => {
+    setAnchorEl(null)
+  }
+
+  const handleButtonSelect = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  return (
+    <Box sx={{ padding: '5px' }}>
+      <Button
+        onClick={handleButtonSelect}
+        variant="outlined"
+        aria-haspopup
+        sx={{ width: '100%' }}
+        startIcon={<Translate />}
+      >
+        {language}
+      </Button>
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleCloseSelect}
+      >
+        <MenuItem onClick={() => changeLanguage(LANGUAGES.RU)}>ru</MenuItem>
+        <MenuItem onClick={() => changeLanguage(LANGUAGES.EN)}>en</MenuItem>
+      </Menu>
+    </Box>
+  )
+}
+
+export default LanguageSelector
