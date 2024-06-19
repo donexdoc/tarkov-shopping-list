@@ -2,10 +2,13 @@ import { setLanguage } from '@/redux/features/app.slice'
 import { AppDispatch, useAppSelector } from '@/redux/store'
 import { LANGUAGES } from '@/store/constatnts'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 
 const HelloComponent = (): JSX.Element => {
   const items = useAppSelector((state) => state.itemsDataReducer.elements)
+
+  const { t } = useTranslation()
 
   useEffect(() => {
     console.log(items)
@@ -19,6 +22,7 @@ const HelloComponent = (): JSX.Element => {
   return (
     <>
       <h1> Hello!</h1>
+      <h1> {t('test')}</h1>
       <br />
       <div>
         <button
