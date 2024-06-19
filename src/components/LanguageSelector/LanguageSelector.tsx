@@ -47,8 +47,9 @@ const LanguageSelector = (): JSX.Element => {
         open={Boolean(anchorEl)}
         onClose={handleCloseSelect}
       >
-        <MenuItem onClick={() => changeLanguage(LANGUAGES.RU)}>ru</MenuItem>
-        <MenuItem onClick={() => changeLanguage(LANGUAGES.EN)}>en</MenuItem>
+        {Object.values(LANGUAGES).map((value) => (
+          <MenuItem onClick={() => changeLanguage(value)}>{value}</MenuItem>
+        ))}
       </Menu>
     </Box>
   )
