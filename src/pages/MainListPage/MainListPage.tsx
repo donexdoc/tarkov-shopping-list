@@ -1,16 +1,9 @@
 import SearchBar from '@/components/SearchBar/SearchBar'
+import SearchSuggestions from '@/components/SearchSuggestions/SearchSuggestions'
 import { useAppSelector } from '@/redux/store'
 import { Item } from '@/store/types/item'
 import { TrackItem } from '@/store/types/trackItem'
-import {
-  List,
-  ListItemButton,
-  ListItemText,
-  Paper,
-  Popper,
-  Typography,
-  debounce,
-} from '@mui/material'
+import { Typography, debounce } from '@mui/material'
 import { useCallback, useRef, useState } from 'react'
 
 const SUGGESTION_LIMIT = 10
@@ -18,10 +11,17 @@ const SUGGESTION_LIMIT = 10
 const MainListPage = (): JSX.Element => {
   const gameItems = useAppSelector((state) => state.itemsDataReducer.elements)
 
-  const anchorPopper = useRef<HTMLDivElement>(null)
+  // const anchorPopper = useRef<HTMLDivElement>(null)
   const [popperIsOpen, setPopperIsOpen] = useState(true)
   const [suggestions, setSuggestions] = useState<Item[]>([])
   const [trackedItems, setTrackedItems] = useState<TrackItem[]>([])
+  const [anchorPopper, setAnchorPopper] = useState<HTMLElement | null>(null)
+
+  const anchorPopperRef = useCallback((node: HTMLElement | null) => {
+    if (node !== null) {
+      setAnchorPopper(node)
+    }
+  }, [])
 
   const searchItems = useCallback(
     (query: string) => {
@@ -93,29 +93,20 @@ const MainListPage = (): JSX.Element => {
       >
         Список предметов
       </Typography>
-      <div ref={anchorPopper}>
+      <div ref={anchorPopperRef}>
         <SearchBar
           onSearch={onSearch}
           onSearchClear={onSearchClear}
           placeholder="Поиск предметов"
         />
-        <Popper open={popperIsOpen} anchorEl={anchorPopper.current}>
-          <Paper elevation={3}>
-            <List>
-              {suggestions.map((suggestion) => (
-                <ListItemButton
-                  key={`suggetion-${suggestion.id}`}
-                  onClick={() => appendSuggestion(suggestion)}
-                >
-                  <ListItemText
-                    primary={suggestion.name}
-                    secondary={suggestion.shortName}
-                  />
-                </ListItemButton>
-              ))}
-            </List>
-          </Paper>
-        </Popper>
+        {anchorPopper && (
+          <SearchSuggestions
+            popperIsOpen={popperIsOpen}
+            anchorEl={anchorPopper}
+            suggestionItems={suggestions}
+            appendSuggestion={appendSuggestion}
+          />
+        )}
       </div>
       <div>
         {trackedItems.map((trackedItem) => (
