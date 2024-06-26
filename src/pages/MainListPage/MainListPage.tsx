@@ -1,6 +1,7 @@
 import SearchBar from '@/components/SearchBar/SearchBar'
 import { useAppSelector } from '@/redux/store'
 import { Item } from '@/store/types/item'
+import { TrackItem } from '@/store/types/trackItem'
 import {
   List,
   ListItemButton,
@@ -12,13 +13,15 @@ import {
 } from '@mui/material'
 import { useCallback, useRef, useState } from 'react'
 
+const SUGGESTION_LIMIT = 10
+
 const MainListPage = (): JSX.Element => {
   const gameItems = useAppSelector((state) => state.itemsDataReducer.elements)
 
   const anchorPopper = useRef<HTMLDivElement>(null)
   const [popperIsOpen, setPopperIsOpen] = useState(true)
-  const [suggetions, setSuggetions] = useState<Item[]>([])
-  const [itemList, setItemList] = useState<Item[]>([])
+  const [suggestions, setSuggestions] = useState<Item[]>([])
+  const [trackedItems, setTrackedItems] = useState<TrackItem[]>([])
 
   const searchItems = useCallback(
     (query: string) => {
@@ -38,10 +41,10 @@ const MainListPage = (): JSX.Element => {
         ) {
           resultItems.push(gameItem)
         }
-        if (resultItems.length === 10) break
+        if (resultItems.length === SUGGESTION_LIMIT) break
       }
 
-      setSuggetions(resultItems)
+      setSuggestions(resultItems)
       setPopperIsOpen(true)
     },
     [gameItems]
@@ -57,8 +60,19 @@ const MainListPage = (): JSX.Element => {
     debounceSearchRef.current(query)
   }, [])
 
-  function appendSuggetion(newItem: Item): void {
-    setItemList([...itemList, newItem])
+  function appendSuggestion(newItem: Item): void {
+    for (const trackedItem of trackedItems) {
+      if (trackedItem.item.id === newItem.id) return
+    }
+
+    setTrackedItems([
+      ...trackedItems,
+      {
+        item: newItem,
+        count: 1,
+        foundInRaid: true,
+      },
+    ])
   }
 
   function onSearchClear(): void {
@@ -88,10 +102,10 @@ const MainListPage = (): JSX.Element => {
         <Popper open={popperIsOpen} anchorEl={anchorPopper.current}>
           <Paper elevation={3}>
             <List>
-              {suggetions.map((suggestion) => (
+              {suggestions.map((suggestion) => (
                 <ListItemButton
                   key={`suggetion-${suggestion.id}`}
-                  onClick={() => appendSuggetion(suggestion)}
+                  onClick={() => appendSuggestion(suggestion)}
                 >
                   <ListItemText
                     primary={suggestion.name}
@@ -104,11 +118,11 @@ const MainListPage = (): JSX.Element => {
         </Popper>
       </div>
       <div>
-        {itemList.map((gameItem) => (
-          <div key={`addedItem-${gameItem.id}`}>
-            <div> {gameItem.name} </div>
-            <div> {gameItem.shortName} </div>
-            <img src={gameItem.image512pxLink} width={200} />
+        {trackedItems.map((trackedItem) => (
+          <div key={`addedItem-${trackedItem.item.id}`}>
+            <div> {trackedItem.item.name} </div>
+            <div> {trackedItem.item.shortName} </div>
+            <img src={trackedItem.item.image512pxLink} width={200} />
           </div>
         ))}
       </div>
