@@ -6,7 +6,7 @@ import { TrackItem } from '@/store/types/trackItem'
 import { Typography } from '@mui/material'
 import { useCallback, useState } from 'react'
 
-const SUGGESTION_LIMIT = 10
+const SUGGESTION_LIMIT = 7
 
 const MainListPage = (): JSX.Element => {
   const gameItems = useAppSelector((state) => state.itemsDataReducer.elements)

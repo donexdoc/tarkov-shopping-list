@@ -1,5 +1,7 @@
 import {
+  Avatar,
   List,
+  ListItemAvatar,
   ListItemButton,
   ListItemText,
   Paper,
@@ -14,7 +16,7 @@ const SearchSuggestions = ({
   suggestionItems,
 }: SearchSuggestionsProps): JSX.Element => {
   return (
-    <Popper open={popperIsOpen} anchorEl={anchorEl} placement="bottom">
+    <Popper open={popperIsOpen} anchorEl={anchorEl} placement="bottom-start">
       <Paper elevation={3}>
         <List>
           {suggestionItems.map((suggestion) => (
@@ -22,6 +24,11 @@ const SearchSuggestions = ({
               key={`suggestion-${suggestion.id}`}
               onClick={() => appendSuggestion(suggestion)}
             >
+              <ListItemAvatar>
+                <Avatar src={suggestion.image512pxLink} alt={suggestion.name}>
+                  {suggestion.name.charAt(0)}
+                </Avatar>
+              </ListItemAvatar>
               <ListItemText
                 primary={suggestion.name}
                 secondary={suggestion.shortName}
