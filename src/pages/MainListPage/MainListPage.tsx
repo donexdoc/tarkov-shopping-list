@@ -17,6 +17,8 @@ const MainListPage = (): JSX.Element => {
   const onSearch = (query: string) => {
     if (query.length) {
       setPopperIsOpen(true)
+    } else {
+      setPopperIsOpen(false)
     }
   }
 
