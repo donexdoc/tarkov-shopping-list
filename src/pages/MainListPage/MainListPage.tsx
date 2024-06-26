@@ -47,7 +47,7 @@ const MainListPage = (): JSX.Element => {
       setSuggestions(resultItems)
       setPopperIsOpen(true)
     },
-    [gameItems] // добавляем language в зависимости
+    [gameItems]
   )
 
   function appendSuggestion(newItem: Item): void {
