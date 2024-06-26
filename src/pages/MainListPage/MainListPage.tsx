@@ -1,4 +1,6 @@
 import SearchBar from '@/components/SearchBar/SearchBar'
+import { useAppSelector } from '@/redux/store'
+import { Item } from '@/store/types/item'
 import {
   List,
   ListItemButton,
@@ -6,40 +8,62 @@ import {
   Paper,
   Popper,
   Typography,
+  debounce,
 } from '@mui/material'
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 
 const MainListPage = (): JSX.Element => {
+  const gameItems = useAppSelector((state) => state.itemsDataReducer.elements)
+
   const anchorPopper = useRef<HTMLDivElement>(null)
   const [popperIsOpen, setPopperIsOpen] = useState(true)
-  const [suggetions, setSuggetions] = useState<string[]>([])
+  const [suggetions, setSuggetions] = useState<Item[]>([])
+  const [itemList, setItemList] = useState<Item[]>([])
 
-  const onSearch = (query: string) => {
-    console.log(query.length)
-    if (query.length) {
+  const searchItems = useCallback(
+    (query: string) => {
+      if (!query.length) {
+        setPopperIsOpen(false)
+        return
+      }
+
+      const normalizedQuery = query.toLowerCase()
+
+      const resultItems: Item[] = []
+
+      for (const gameItem of gameItems) {
+        if (
+          gameItem.name.toLowerCase().includes(normalizedQuery) ||
+          gameItem.shortName.toLowerCase().includes(normalizedQuery)
+        ) {
+          resultItems.push(gameItem)
+        }
+        if (resultItems.length === 10) break
+      }
+
+      setSuggetions(resultItems)
       setPopperIsOpen(true)
-    } else {
-      setPopperIsOpen(false)
-    }
-  }
+    },
+    [gameItems]
+  )
 
-  function appendSuggetion(index: number): void {
-    console.log(index)
+  const debounceSearchRef = useRef(
+    debounce((query: string) => {
+      searchItems(query)
+    }, 300)
+  )
+
+  const onSearch = useCallback((query: string): void => {
+    debounceSearchRef.current(query)
+  }, [])
+
+  function appendSuggetion(newItem: Item): void {
+    setItemList([...itemList, newItem])
   }
 
   function onSearchClear(): void {
     setPopperIsOpen(false)
   }
-
-  useEffect(() => {
-    setSuggetions([
-      'Est labore duis qui ad amet.',
-      'Quis labore pariatur officia',
-      'Amet dolore esse dolore cillum.',
-      'Est laborum minim ad culpa cillum exercitation.',
-      'Amet fugiat fugiat dolor excepteur.',
-    ])
-  }, [])
 
   return (
     <>
@@ -64,17 +88,29 @@ const MainListPage = (): JSX.Element => {
         <Popper open={popperIsOpen} anchorEl={anchorPopper.current}>
           <Paper elevation={3}>
             <List>
-              {suggetions.map((suggestion, index) => (
+              {suggetions.map((suggestion) => (
                 <ListItemButton
-                  key={`suggetion-${index}`}
-                  onClick={() => appendSuggetion(index)}
+                  key={`suggetion-${suggestion.id}`}
+                  onClick={() => appendSuggetion(suggestion)}
                 >
-                  <ListItemText primary={suggestion} />
+                  <ListItemText
+                    primary={suggestion.name}
+                    secondary={suggestion.shortName}
+                  />
                 </ListItemButton>
               ))}
             </List>
           </Paper>
         </Popper>
+      </div>
+      <div>
+        {itemList.map((gameItem) => (
+          <div key={`addedItem-${gameItem.id}`}>
+            <div> {gameItem.name} </div>
+            <div> {gameItem.shortName} </div>
+            <img src={gameItem.image512pxLink} width={200} />
+          </div>
+        ))}
       </div>
     </>
   )
