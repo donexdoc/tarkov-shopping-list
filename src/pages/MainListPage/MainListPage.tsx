@@ -3,16 +3,15 @@ import SearchSuggestions from '@/components/SearchSuggestions/SearchSuggestions'
 import { useAppSelector } from '@/redux/store'
 import { Item } from '@/store/types/item'
 import { TrackItem } from '@/store/types/trackItem'
-import { Typography, debounce } from '@mui/material'
-import { useCallback, useRef, useState } from 'react'
+import { Typography } from '@mui/material'
+import { useCallback, useState } from 'react'
 
 const SUGGESTION_LIMIT = 10
 
 const MainListPage = (): JSX.Element => {
   const gameItems = useAppSelector((state) => state.itemsDataReducer.elements)
 
-  // const anchorPopper = useRef<HTMLDivElement>(null)
-  const [popperIsOpen, setPopperIsOpen] = useState(true)
+  const [popperIsOpen, setPopperIsOpen] = useState(false)
   const [suggestions, setSuggestions] = useState<Item[]>([])
   const [trackedItems, setTrackedItems] = useState<TrackItem[]>([])
   const [anchorPopper, setAnchorPopper] = useState<HTMLElement | null>(null)
@@ -27,6 +26,7 @@ const MainListPage = (): JSX.Element => {
     (query: string) => {
       if (!query.length) {
         setPopperIsOpen(false)
+        setSuggestions([])
         return
       }
 
@@ -47,36 +47,28 @@ const MainListPage = (): JSX.Element => {
       setSuggestions(resultItems)
       setPopperIsOpen(true)
     },
-    [gameItems]
+    [gameItems] // добавляем language в зависимости
   )
-
-  const debounceSearchRef = useRef(
-    debounce((query: string) => {
-      searchItems(query)
-    }, 300)
-  )
-
-  const onSearch = useCallback((query: string): void => {
-    debounceSearchRef.current(query)
-  }, [])
 
   function appendSuggestion(newItem: Item): void {
-    for (const trackedItem of trackedItems) {
-      if (trackedItem.item.id === newItem.id) return
-    }
-
-    setTrackedItems([
-      ...trackedItems,
-      {
-        item: newItem,
-        count: 1,
-        foundInRaid: true,
-      },
-    ])
+    setTrackedItems((prevItems) => {
+      if (prevItems.some((item) => item.item.id === newItem.id)) {
+        return prevItems
+      }
+      return [
+        ...prevItems,
+        {
+          item: newItem,
+          count: 1,
+          foundInRaid: true,
+        },
+      ]
+    })
   }
 
   function onSearchClear(): void {
     setPopperIsOpen(false)
+    setSuggestions([])
   }
 
   return (
@@ -95,7 +87,7 @@ const MainListPage = (): JSX.Element => {
       </Typography>
       <div ref={anchorPopperRef}>
         <SearchBar
-          onSearch={onSearch}
+          onSearch={searchItems}
           onSearchClear={onSearchClear}
           placeholder="Поиск предметов"
         />
