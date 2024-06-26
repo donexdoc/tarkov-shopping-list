@@ -5,6 +5,7 @@ import { AppDispatch, useAppSelector } from '@/redux/store'
 import { setDrawerState } from '@/redux/features/app.slice'
 import { APP_DRAWER_WIDTH } from '@/store/constatnts'
 import AppDrawerContent from '../AppDrawerContent/AppDrawerContent'
+import { useCallback } from 'react'
 
 export default function AppDrawer({ window }: AppDrawerProps): JSX.Element {
   const drawerState = useAppSelector((state) => state.appReducer.drawerState)
@@ -14,13 +15,15 @@ export default function AppDrawer({ window }: AppDrawerProps): JSX.Element {
     dispatch(setDrawerState(false))
   }
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined
+  const getContainer = useCallback(
+    () => (window !== undefined ? window().document.body : undefined),
+    [window]
+  )
 
   return (
     <>
       <Drawer
-        container={container}
+        container={getContainer()}
         variant="temporary"
         open={drawerState}
         onClose={drawerClose}
