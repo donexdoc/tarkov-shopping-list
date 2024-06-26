@@ -48,7 +48,9 @@ const LanguageSelector = (): JSX.Element => {
         onClose={handleCloseSelect}
       >
         {Object.values(LANGUAGES).map((value) => (
-          <MenuItem onClick={() => changeLanguage(value)}>{value}</MenuItem>
+          <MenuItem key={`lang_${value}`} onClick={() => changeLanguage(value)}>
+            {value}
+          </MenuItem>
         ))}
       </Menu>
     </Box>
