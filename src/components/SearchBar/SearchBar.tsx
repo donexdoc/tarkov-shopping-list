@@ -3,11 +3,16 @@ import { IconButton, InputAdornment, TextField } from '@mui/material'
 import { useState } from 'react'
 import { SearchBarProps } from './SearchBar.props'
 
-const SearchBar = ({ onSearch, placeholder }: SearchBarProps): JSX.Element => {
+const SearchBar = ({
+  onSearch,
+  onSearchClear,
+  placeholder,
+}: SearchBarProps): JSX.Element => {
   const [queryLine, setQueryLine] = useState('')
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQueryLine(event.target.value)
+    handleSearchSubmit()
   }
 
   function handleSearchSubmit() {
@@ -16,6 +21,7 @@ const SearchBar = ({ onSearch, placeholder }: SearchBarProps): JSX.Element => {
 
   function handleClearSearch() {
     setQueryLine('')
+    onSearchClear()
   }
 
   return (
