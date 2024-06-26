@@ -29,7 +29,7 @@ export default function AppDrawer({ window }: AppDrawerProps): JSX.Element {
         onClose={drawerClose}
         ModalProps={{ keepMounted: true }}
         sx={{
-          display: { xs: 'block', sm: 'none' },
+          display: { xs: 'block', sm: 'block', md: 'none' },
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
             width: APP_DRAWER_WIDTH,
@@ -42,7 +42,7 @@ export default function AppDrawer({ window }: AppDrawerProps): JSX.Element {
         variant="permanent"
         open
         sx={{
-          display: { xs: 'none', sm: 'block' },
+          display: { xs: 'none', sm: 'none', md: 'block' },
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
             width: APP_DRAWER_WIDTH,

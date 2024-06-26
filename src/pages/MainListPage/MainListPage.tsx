@@ -1,5 +1,6 @@
 import SearchBar from '@/components/SearchBar/SearchBar'
 import SearchSuggestions from '@/components/SearchSuggestions/SearchSuggestions'
+import TrackedItems from '@/components/TrackedItems/TrackedItems'
 import { useAppSelector } from '@/redux/store'
 import { Item } from '@/store/types/item'
 import { TrackItem } from '@/store/types/trackItem'
@@ -101,13 +102,7 @@ const MainListPage = (): JSX.Element => {
         )}
       </div>
       <div>
-        {trackedItems.map((trackedItem) => (
-          <div key={`addedItem-${trackedItem.item.id}`}>
-            <div> {trackedItem.item.name} </div>
-            <div> {trackedItem.item.shortName} </div>
-            <img src={trackedItem.item.image512pxLink} width={200} />
-          </div>
-        ))}
+        <TrackedItems items={trackedItems} />
       </div>
     </>
   )
