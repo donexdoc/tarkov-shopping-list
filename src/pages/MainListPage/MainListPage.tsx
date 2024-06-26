@@ -15,6 +15,7 @@ const MainListPage = (): JSX.Element => {
   const [suggetions, setSuggetions] = useState<string[]>([])
 
   const onSearch = (query: string) => {
+    console.log(query.length)
     if (query.length) {
       setPopperIsOpen(true)
     } else {

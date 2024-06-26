@@ -1,6 +1,6 @@
 import { Clear, Search } from '@mui/icons-material'
 import { IconButton, InputAdornment, TextField } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SearchBarProps } from './SearchBar.props'
 
 const SearchBar = ({
@@ -9,6 +9,14 @@ const SearchBar = ({
   placeholder,
 }: SearchBarProps): JSX.Element => {
   const [queryLine, setQueryLine] = useState('')
+
+  useEffect(() => {
+    if (queryLine.length) {
+      onSearch(queryLine)
+    } else {
+      onSearchClear()
+    }
+  }, [onSearch, onSearchClear, queryLine])
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQueryLine(event.target.value)
@@ -21,7 +29,6 @@ const SearchBar = ({
 
   function handleClearSearch() {
     setQueryLine('')
-    onSearchClear()
   }
 
   return (
