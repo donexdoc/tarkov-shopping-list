@@ -1,20 +1,21 @@
 import SearchBar from '@/components/SearchBar/SearchBar'
 import SearchSuggestions from '@/components/SearchSuggestions/SearchSuggestions'
 import TrackedItems from '@/components/TrackedItems/TrackedItems'
-import { useAppSelector } from '@/redux/store'
+import { addTrackedItem } from '@/redux/features/shoppingList.slice'
+import { AppDispatch, useAppSelector } from '@/redux/store'
 import { Item } from '@/store/types/item'
-import { TrackItem } from '@/store/types/trackItem'
-import { Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { useCallback, useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 const SUGGESTION_LIMIT = 7
 
 const MainListPage = (): JSX.Element => {
   const gameItems = useAppSelector((state) => state.itemsDataReducer.elements)
+  const dispatch = useDispatch<AppDispatch>()
 
   const [popperIsOpen, setPopperIsOpen] = useState(false)
   const [suggestions, setSuggestions] = useState<Item[]>([])
-  const [trackedItems, setTrackedItems] = useState<TrackItem[]>([])
   const [anchorPopper, setAnchorPopper] = useState<HTMLElement | null>(null)
 
   const anchorPopperRef = useCallback((node: HTMLElement | null) => {
@@ -52,19 +53,13 @@ const MainListPage = (): JSX.Element => {
   )
 
   function appendSuggestion(newItem: Item): void {
-    setTrackedItems((prevItems) => {
-      if (prevItems.some((item) => item.item.id === newItem.id)) {
-        return prevItems
-      }
-      return [
-        ...prevItems,
-        {
-          item: newItem,
-          count: 1,
-          foundInRaid: true,
-        },
-      ]
-    })
+    dispatch(
+      addTrackedItem({
+        item: newItem,
+        count: 1,
+        foundInRaid: true,
+      })
+    )
   }
 
   function onSearchClear(): void {
@@ -86,7 +81,7 @@ const MainListPage = (): JSX.Element => {
       >
         Список предметов
       </Typography>
-      <div ref={anchorPopperRef}>
+      <Box ref={anchorPopperRef}>
         <SearchBar
           onSearch={searchItems}
           onSearchClear={onSearchClear}
@@ -100,10 +95,10 @@ const MainListPage = (): JSX.Element => {
             appendSuggestion={appendSuggestion}
           />
         )}
-      </div>
-      <div>
-        <TrackedItems items={trackedItems} />
-      </div>
+      </Box>
+      <Box sx={{ mt: 2 }}>
+        <TrackedItems />
+      </Box>
     </>
   )
 }
