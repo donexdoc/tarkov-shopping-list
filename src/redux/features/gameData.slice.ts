@@ -10,16 +10,15 @@ export interface GameDataInitialState<T> {
   elements: T[]
   loading: boolean
   error: string | null
-  language: LANGUAGES
 }
 
 export const createLoadElements = <T>(
   name: string,
-  importFunciton: (language: LANGUAGES) => Promise<{ default: T[] }>
+  importFunciton: (language: LANGUAGES) => Promise<T[]>
 ) => {
   return createAsyncThunk(`${name}/gameData`, async (language: LANGUAGES) => {
     const elementsJson = await importFunciton(language)
-    return elementsJson.default as T[]
+    return elementsJson
   })
 }
 

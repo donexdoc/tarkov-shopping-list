@@ -1,8 +1,9 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { APP_TITLE, LANGUAGES, PAGES } from '@/store/constatnts'
 import { loadItems } from './itemsData.slice'
+import { RootState } from '../store'
 
-const SLICE_NAME = 'app'
+export const SLICE_NAME = 'app'
 
 interface IInitialState {
   drawerState: boolean
@@ -40,6 +41,14 @@ const saveState = (state: IInitialState) => {
 }
 
 const initialState: IInitialState = loadState()
+
+export const initializeApp = createAsyncThunk(
+  'app/initialize',
+  async (_, { dispatch, getState }) => {
+    const state = getState() as RootState
+    await dispatch(loadItems(state.appReducer.language as LANGUAGES))
+  }
+)
 
 export const setLanguage = createAsyncThunk(
   'app/setLanguage',

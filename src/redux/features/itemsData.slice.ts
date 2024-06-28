@@ -1,32 +1,28 @@
 import { Item } from '@/store/types/item'
 import { LANGUAGES } from '@/store/constatnts'
 
-import itemsDataJson from '@/store/data/en/items.json'
 import {
   GameDataInitialState,
   createGameDataSlice,
   createLoadElements,
 } from './gameData.slice'
 
+const SLICE_NAME = 'itemsData'
 const initialState: GameDataInitialState<Item> = {
-  elements: itemsDataJson as Item[],
+  elements: [] as Item[],
   loading: false,
   error: null,
-  language: LANGUAGES.EN,
 }
 
 const importItems = async (language: LANGUAGES) => {
-  if (language === LANGUAGES.RU) {
-    return await import('@/store/data/ru/items.json')
-  } else {
-    return await import('@/store/data/en/items.json')
-  }
+  const response = await fetch(`/gameData/${language}/items.json`)
+  return response.json()
 }
 
-export const loadItems = createLoadElements<Item>('itemsData', importItems)
+export const loadItems = createLoadElements<Item>(SLICE_NAME, importItems)
 
 export const itemsDataSlice = createGameDataSlice<Item, typeof loadItems>(
-  'itemsData',
+  SLICE_NAME,
   loadItems,
   initialState
 )
