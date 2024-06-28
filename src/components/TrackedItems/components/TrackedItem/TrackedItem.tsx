@@ -47,11 +47,15 @@ const TrackedItem = ({ trackedItem }: TrackedItemProps): JSX.Element => {
       sx={{
         width: '100%',
         height: '100%',
+        display: 'flex',
+
+        flexDirection: 'column',
       }}
     >
       <Box
         sx={{
           display: 'flex',
+          flexGrow: 1,
         }}
       >
         <Box
@@ -93,6 +97,7 @@ const TrackedItem = ({ trackedItem }: TrackedItemProps): JSX.Element => {
           pb: 1,
           pr: 1,
           pt: 0,
+          mt: 'auto',
         }}
       >
         <IconButton aria-label="delete" size="small" onClick={removeItem}>
