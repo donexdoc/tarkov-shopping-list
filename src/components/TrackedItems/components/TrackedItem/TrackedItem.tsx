@@ -82,7 +82,8 @@ const TrackedItem = ({ trackedItem }: TrackedItemProps): JSX.Element => {
         <CardMedia
           component="img"
           sx={{
-            width: 100,
+            maxWidth: 100,
+            maxHeight: 100,
             objectFit: 'contain',
           }}
           image={trackedItem.item.image512pxLink}
