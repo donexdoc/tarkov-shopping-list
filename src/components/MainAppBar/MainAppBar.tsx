@@ -17,8 +17,8 @@ export default function MainAppBar(): JSX.Element {
     <AppBar
       position="fixed"
       sx={{
-        width: { sm: `calc(100% - ${APP_DRAWER_WIDTH}px)` },
-        ml: { sm: `${APP_DRAWER_WIDTH}px` },
+        width: { md: `calc(100% - ${APP_DRAWER_WIDTH}px)` },
+        ml: { md: `${APP_DRAWER_WIDTH}px` },
       }}
     >
       <Toolbar>
@@ -27,7 +27,7 @@ export default function MainAppBar(): JSX.Element {
           aria-label="open drawer"
           edge="start"
           onClick={drawerOpen}
-          sx={{ mr: 2, display: { sm: 'none' } }}
+          sx={{ mr: 2, display: { md: 'none' } }}
         >
           <Menu />
         </IconButton>

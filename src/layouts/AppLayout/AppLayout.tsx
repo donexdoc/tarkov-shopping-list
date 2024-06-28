@@ -16,7 +16,7 @@ export const AppLayout = ({ children }: AppLayoutProps): JSX.Element => {
         <MainAppBar />
         <Box
           component="nav"
-          sx={{ width: { sm: APP_DRAWER_WIDTH }, flexShrink: { sm: 0 } }}
+          sx={{ width: { md: APP_DRAWER_WIDTH }, flexShrink: { sm: 0 } }}
           aria-label="mailbox folders"
         >
           <AppDrawer />
@@ -27,7 +27,7 @@ export const AppLayout = ({ children }: AppLayoutProps): JSX.Element => {
           sx={{
             flexGrow: 1,
             p: 3,
-            width: { sm: `calc(100% - ${APP_DRAWER_WIDTH}px)` },
+            width: { md: `calc(100% - ${APP_DRAWER_WIDTH}px)` },
           }}
         >
           <Toolbar />
