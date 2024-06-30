@@ -85,6 +85,10 @@ const TrackedItem = ({ trackedItem }: TrackedItemProps): JSX.Element => {
             maxWidth: 100,
             maxHeight: 100,
             objectFit: 'contain',
+            m: 1,
+            border: '2px solid #535C5F',
+            backgroundColor: '#23323B',
+            borderRadius: '3px',
           }}
           image={trackedItem.item.image512pxLink}
           alt={trackedItem.item.name}

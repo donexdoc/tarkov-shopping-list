@@ -36,6 +36,7 @@ const LanguageSelector = (): JSX.Element => {
       <Button
         onClick={handleButtonSelect}
         variant="outlined"
+        color="info"
         aria-haspopup
         sx={{ width: '100%' }}
         startIcon={<Translate />}
