@@ -31,9 +31,9 @@ const navigationList: NavigationElement[] = [
   },
   {
     title: 'Помощь проекту',
-    identy: 'about',
+    identy: 'support_project',
     icon: <HandshakeTwoTone />,
-    to: '/about',
+    to: '/support_project',
   },
 ]
 

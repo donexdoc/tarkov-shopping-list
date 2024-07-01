@@ -1,12 +1,12 @@
 import MainListPage from '../MainListPage/MainListPage'
-import AboutPage from '../AboutPage/AboutPage'
+import SupportProjectPage from '../SupportProjectPage/SupportProjectPage'
 import { Route, Routes } from 'react-router-dom'
 
 const PageRouter = (): JSX.Element => {
   return (
     <Routes>
       <Route path="/" element={<MainListPage />} />
-      <Route path="/about" element={<AboutPage />} />
+      <Route path="/support_project" element={<SupportProjectPage />} />
     </Routes>
   )
 }
