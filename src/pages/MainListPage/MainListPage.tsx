@@ -70,11 +70,7 @@ const MainListPage = (): JSX.Element => {
 
   return (
     <>
-      <Box
-        sx={{
-          margin: 1,
-        }}
-      >
+      <Box>
         <SupportProjectWidget />
       </Box>
       <Typography
