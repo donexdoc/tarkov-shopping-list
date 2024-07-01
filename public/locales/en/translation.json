@@ -1,3 +1,28 @@
 {
+  "AppDrawerContent.navigation.tracker": "Item Tracker",
+  "AppDrawerContent.navigation.supportProject": "Support the Project",
+
+  "TrackedItems.emptyList.title": "It's empty here for now",
+  "TrackedItems.emptyList.tip": "Add items to track to see them here",
+
+  "SupportProjectWidget.button": "Support the project",
+  "MainListPage.mainTitle": "Item List",
+  "MainListPage.searchBarPlaceholder": "Search items",
+
+  "SupportProjectPage.mainTitle": "Support the Project",
+  "SupportProjectPage.p1": "Hello! I'm glad you're interested in supporting this project. \"Tarkov Shopping List\" is an open-source project that I work on in my free time. My goal is to create a convenient and useful tool for everyone who loves playing Escape From Tarkov and wants to make their game a bit more convenient.",
+  "SupportProjectPage.p2": "With this application, you can track items that you need to find for quests, hideout, or crafting.",
+  "SupportProjectPage.p3": "As an independent developer, I put a lot of time and effort into this project. Your support will help me continue to develop and improve \"Tarkov Shopping List\", as well as implement new features.",
+  "SupportProjectPage.button.sourceCode": "Source code on GitHub",
+  "SupportProjectPage.futureTitle": "Future plans:",
+  "SupportProjectPage.futureGoal1": "Develop a backend application for future feature expansion and data storage optimization.",
+  "SupportProjectPage.futureGoal2": "Acquire a domain and hosting for this application",
+  "SupportProjectPage.futureGoal3": "Add a separate tab with quest items to add items to the list by quest name",
+  "SupportProjectPage.futureGoal4": "Add more localizations",
+  "SupportProjectPage.futureGoal5": "Improve the user interface of the current application",
+  "SupportProjectPage.supportTitle": "How you can help:",
+  "SupportProjectPage.button.support": "Subscribe / donate on Boosty",
+  "SupportProjectPage.gratitude": "Any support is greatly appreciated and will help make this project even better. Thank you for your interest and support!",
+
   "test": "Test message"
 }

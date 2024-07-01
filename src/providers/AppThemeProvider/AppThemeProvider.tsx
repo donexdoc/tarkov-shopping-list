@@ -32,6 +32,10 @@ const MAIN_THEME = createTheme({
     success: {
       main: '#388e3c',
     },
+    info: {
+      main: '#279cd2',
+      contrastText: '#ffffff',
+    },
   },
 })
 // #C7B056

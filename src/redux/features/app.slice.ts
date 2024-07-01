@@ -9,7 +9,7 @@ interface IInitialState {
   drawerState: boolean
   currentPage: PAGES
   appTitle: string
-  language: string
+  language: LANGUAGES
 }
 
 const defaultInitialState: IInitialState = {

@@ -1,9 +1,11 @@
 import { VolunteerActivism } from '@mui/icons-material'
 import { Button } from '@mui/material'
+import { useTranslation } from 'react-i18next'
 
 import { Link as RouterLink } from 'react-router-dom'
 
 const SupportProjectWidget = (): JSX.Element => {
+  const { t } = useTranslation()
   return (
     <Button
       component={RouterLink}
@@ -13,7 +15,7 @@ const SupportProjectWidget = (): JSX.Element => {
       startIcon={<VolunteerActivism />}
       size="small"
     >
-      Поддержать проект
+      {t('SupportProjectWidget.button')}
     </Button>
   )
 }

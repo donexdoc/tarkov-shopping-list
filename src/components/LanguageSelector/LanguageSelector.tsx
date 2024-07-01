@@ -2,8 +2,15 @@ import { setLanguage } from '@/redux/features/app.slice'
 import { AppDispatch, useAppSelector } from '@/redux/store'
 import { LANGUAGES } from '@/store/constatnts'
 import { Translate } from '@mui/icons-material'
-import { Box, Button, Menu, MenuItem } from '@mui/material'
-import { useEffect, useState } from 'react'
+import {
+  Box,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from '@mui/material'
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 
@@ -11,49 +18,34 @@ const LanguageSelector = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>()
   const language = useAppSelector((store) => store.appReducer.language)
   const { i18n } = useTranslation()
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
 
-  const changeLanguage = (newLanguage: LANGUAGES) => {
+  const changeLanguage = (event: SelectChangeEvent<LANGUAGES>) => {
+    const newLanguage = event.target.value as LANGUAGES
     dispatch(setLanguage(newLanguage))
-
-    handleCloseSelect()
   }
 
   useEffect(() => {
     i18n.changeLanguage(language)
   }, [language, i18n])
-
-  const handleCloseSelect = () => {
-    setAnchorEl(null)
-  }
-
-  const handleButtonSelect = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget)
-  }
-
   return (
-    <Box sx={{ padding: '5px' }}>
-      <Button
-        onClick={handleButtonSelect}
-        variant="outlined"
-        color="info"
-        aria-haspopup
-        sx={{ width: '100%' }}
-        startIcon={<Translate />}
-      >
-        {language}
-      </Button>
-      <Menu
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleCloseSelect}
-      >
-        {Object.values(LANGUAGES).map((value) => (
-          <MenuItem key={`lang_${value}`} onClick={() => changeLanguage(value)}>
-            {value}
-          </MenuItem>
-        ))}
-      </Menu>
+    <Box sx={{ p: 1, mt: 1, width: '100%' }}>
+      <FormControl fullWidth>
+        <InputLabel id="language-select-label">Language</InputLabel>
+        <Select
+          labelId="language-select-label"
+          id="language-select"
+          value={language}
+          onChange={changeLanguage}
+          label="Language"
+          startAdornment={<Translate sx={{ mr: 1, ml: -0.5 }} />}
+        >
+          {Object.values(LANGUAGES).map((value) => (
+            <MenuItem key={`lang_${value}`} value={value}>
+              {value}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
     </Box>
   )
 }

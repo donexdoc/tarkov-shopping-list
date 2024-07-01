@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/redux/store'
 import { setDrawerState } from '@/redux/features/app.slice'
 import SocialLinks from './components/SocialLinks/SocialLinks'
+import { useTranslation } from 'react-i18next'
 
 interface NavigationElement {
   title: string
@@ -24,13 +25,13 @@ interface NavigationElement {
 
 const navigationList: NavigationElement[] = [
   {
-    title: 'Трекер предметов',
+    title: 'AppDrawerContent.navigation.tracker',
     identy: 'tracker',
     icon: <Dashboard color="primary" />,
     to: '/',
   },
   {
-    title: 'Помощь проекту',
+    title: 'AppDrawerContent.navigation.supportProject',
     identy: 'support_project',
     icon: <HandshakeTwoTone color="primary" />,
     to: '/support_project',
@@ -38,6 +39,7 @@ const navigationList: NavigationElement[] = [
 ]
 
 export default function AppDrawerContent(): JSX.Element {
+  const { t } = useTranslation()
   const location = useLocation()
   const dispatch = useDispatch<AppDispatch>()
 
@@ -73,7 +75,7 @@ export default function AppDrawerContent(): JSX.Element {
                 onClick={closeDrawer}
               >
                 <ListItemIcon>{navigationElement.icon}</ListItemIcon>
-                <ListItemText primary={navigationElement.title} />
+                <ListItemText primary={t(navigationElement.title)} />
               </ListItemButton>
             </ListItem>
           )

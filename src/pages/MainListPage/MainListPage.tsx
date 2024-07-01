@@ -7,11 +7,14 @@ import { AppDispatch, useAppSelector } from '@/redux/store'
 import { Item } from '@/store/types/item'
 import { Box, Typography } from '@mui/material'
 import { useCallback, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 
 const SUGGESTION_LIMIT = 7
 
 const MainListPage = (): JSX.Element => {
+  const { t } = useTranslation()
+
   const gameItems = useAppSelector((state) => state.itemsDataReducer.elements)
   const dispatch = useDispatch<AppDispatch>()
 
@@ -83,14 +86,14 @@ const MainListPage = (): JSX.Element => {
           padding: '10px',
         }}
       >
-        Список предметов
+        {t('MainListPage.mainTitle')}
       </Typography>
 
       <Box ref={anchorPopperRef}>
         <SearchBar
           onSearch={searchItems}
           onSearchClear={onSearchClear}
-          placeholder="Поиск предметов"
+          placeholder={t('MainListPage.searchBarPlaceholder')}
         />
         {anchorPopper && (
           <SearchSuggestions

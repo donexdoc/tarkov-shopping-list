@@ -15,32 +15,22 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material'
+import { useTranslation } from 'react-i18next'
 
 const SupportProjectPage = (): JSX.Element => {
+  const { t } = useTranslation()
+
   return (
     <Box sx={{ maxWidth: 800, margin: 'auto', padding: 3 }}>
       <Typography variant="h4" gutterBottom>
-        Поддержать проект
+        {t('SupportProjectPage.mainTitle')}
       </Typography>
 
-      <Typography paragraph>
-        Привет! Я рад, что вы заинтересовались поддержкой этого проекта. "Tarkov
-        Shopping List" — это проект с открытым исходным кодом, над которым я
-        работаю в свободное время. Моя цель — создать удобный и полезный
-        инструмент для всех, кто любит играть Escape From Tarkov и хочет сделать
-        свою игру чуть удобнее.
-      </Typography>
+      <Typography paragraph>{t('SupportProjectPage.p1')}</Typography>
 
-      <Typography paragraph>
-        При помощи этого приложения, вы можете отслеживать предметы, котоыре вам
-        необходимо найти для квестов, убежища или крафта.
-      </Typography>
+      <Typography paragraph>{t('SupportProjectPage.p2')}</Typography>
 
-      <Typography paragraph>
-        Как независимый разработчик, я вкладываю в этот проект много времени и
-        усилий. Ваша поддержка поможет мне продолжать развивать и улучшать
-        "Tarkov Shopping List", а также реализовывать новые функции.
-      </Typography>
+      <Typography paragraph>{t('SupportProjectPage.p3')}</Typography>
 
       <Box sx={{ mt: 2 }}>
         <Button
@@ -49,12 +39,12 @@ const SupportProjectPage = (): JSX.Element => {
           target="_blank"
           sx={{ m: 1 }}
         >
-          Исходный код на GitGhub
+          {t('SupportProjectPage.button.sourceCode')}
         </Button>
       </Box>
 
       <Typography variant="h6" gutterBottom sx={{ mt: 4 }}>
-        Планы на будущее:
+        {t('SupportProjectPage.futureTitle')}
       </Typography>
 
       <List>
@@ -62,36 +52,36 @@ const SupportProjectPage = (): JSX.Element => {
           <ListItemIcon>
             <Code color="primary" />
           </ListItemIcon>
-          <ListItemText primary="Разработать backend приложение, для будущего расширения функций и оптимизации хранения данных." />
+          <ListItemText primary={t('SupportProjectPage.futureGoal1')} />
         </ListItem>
         <ListItem>
           <ListItemIcon>
             <Public color="primary" />
           </ListItemIcon>
-          <ListItemText primary="Приобрести домен и хостинг для этого приложения" />
+          <ListItemText primary={t('SupportProjectPage.futureGoal2')} />
         </ListItem>
         <ListItem>
           <ListItemIcon>
             <AddTask color="primary" />
           </ListItemIcon>
-          <ListItemText primary="Добавить отдельную вкладку с квестовыми предметами, чтобы по названию квеста добавлять предметы в список" />
+          <ListItemText primary={t('SupportProjectPage.futureGoal3')} />
         </ListItem>
         <ListItem>
           <ListItemIcon>
             <Language color="primary" />
           </ListItemIcon>
-          <ListItemText primary="Добавить больше локализаций" />
+          <ListItemText primary={t('SupportProjectPage.futureGoal4')} />
         </ListItem>
         <ListItem>
           <ListItemIcon>
             <Code color="primary" />
           </ListItemIcon>
-          <ListItemText primary="Доробатывать пользовательский интерфейс текущего приложения" />
+          <ListItemText primary={t('SupportProjectPage.futureGoal5')} />
         </ListItem>
       </List>
 
       <Typography variant="h6" gutterBottom sx={{ mt: 4 }}>
-        Как вы можете помочь:
+        {t('SupportProjectPage.supportTitle')}
       </Typography>
 
       <Box sx={{ mt: 2 }}>
@@ -102,13 +92,12 @@ const SupportProjectPage = (): JSX.Element => {
           target="_blank"
           sx={{ m: 1 }}
         >
-          Подписка / донат на Boosty
+          {t('SupportProjectPage.button.support')}
         </Button>
       </Box>
 
       <Typography sx={{ mt: 4 }} paragraph>
-        Любая поддержка, очень ценна и поможет сделать этот проект еще лучше.
-        Спасибо за ваш интерес и поддержку!
+        {t('SupportProjectPage.gratitude')}
       </Typography>
     </Box>
   )

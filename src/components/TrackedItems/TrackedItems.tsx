@@ -2,11 +2,13 @@ import { Box, Grid, Typography } from '@mui/material'
 import { useAppSelector } from '@/redux/store'
 import TrackedItem from './components/TrackedItem/TrackedItem'
 import { PlaylistAdd } from '@mui/icons-material'
+import { useTranslation } from 'react-i18next'
 
 const TrackedItems = (): JSX.Element => {
   const trackedItems = useAppSelector(
     (state) => state.shoppingList.trackedItems
   )
+  const { t } = useTranslation()
 
   if (trackedItems.length === 0) {
     return (
@@ -22,10 +24,10 @@ const TrackedItems = (): JSX.Element => {
       >
         <PlaylistAdd sx={{ fontSize: 60, color: 'text.secondary', mb: 2 }} />
         <Typography variant="h6" color="text.secondary">
-          Пока что тут пусто
+          {t('TrackedItems.emptyList.title')}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Добавьте предметы для отслеживания, чтобы увидеть их здесь
+          {t('TrackedItems.emptyList.tip')}
         </Typography>
       </Box>
     )

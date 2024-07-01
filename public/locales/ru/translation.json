@@ -1,3 +1,28 @@
 {
+  "AppDrawerContent.navigation.tracker": "Трекер предметов",
+  "AppDrawerContent.navigation.supportProject": "Помощь проекту",
+
+  "TrackedItems.emptyList.title": "Пока что тут пусто",
+  "TrackedItems.emptyList.tip": "Добавьте предметы для отслеживания, чтобы увидеть их здесь",
+
+  "SupportProjectWidget.button": "Поддержать проект",
+  "MainListPage.mainTitle": "Список предметов",
+  "MainListPage.searchBarPlaceholder": "Поиск предметов",
+
+  "SupportProjectPage.mainTitle": "Поддержать проект",
+  "SupportProjectPage.p1": "Привет! Я рад, что вы заинтересовались поддержкой этого проекта. \"Tarkov Shopping List\" — это проект с открытым исходным кодом, над которым я работаю в свободное время. Моя цель — создать удобный и полезный инструмент для всех, кто любит играть Escape From Tarkov и хочет сделать свою игру чуть удобнее.",
+  "SupportProjectPage.p2": "При помощи этого приложения, вы можете отслеживать предметы, котоыре вам необходимо найти для квестов, убежища или крафта.",
+  "SupportProjectPage.p3": "Как независимый разработчик, я вкладываю в этот проект много времени и усилий. Ваша поддержка поможет мне продолжать развивать и улучшать \"Tarkov Shopping List\", а также реализовывать новые функции.",
+  "SupportProjectPage.button.sourceCode": "Исходный код на GitGhub",
+  "SupportProjectPage.futureTitle": "Планы на будущее:",
+  "SupportProjectPage.futureGoal1": "Разработать backend приложение, для будущего расширения функций и оптимизации хранения данных.",
+  "SupportProjectPage.futureGoal2": "Приобрести домен и хостинг для этого приложения",
+  "SupportProjectPage.futureGoal3": "Добавить отдельную вкладку с квестовыми предметами, чтобы по названию квеста добавлять предметы в список",
+  "SupportProjectPage.futureGoal4": "Добавить больше локализаций",
+  "SupportProjectPage.futureGoal5": "Доробатывать пользовательский интерфейс текущего приложения",
+  "SupportProjectPage.supportTitle": "Как вы можете помочь:",
+  "SupportProjectPage.button.support": "Подписка / донат на Boosty",
+  "SupportProjectPage.gratitude": "Любая поддержка, очень ценна и поможет сделать этот проект еще лучше. Спасибо за ваш интерес и поддержку!",
+
   "test": "Тестовое сообщение"
 }
