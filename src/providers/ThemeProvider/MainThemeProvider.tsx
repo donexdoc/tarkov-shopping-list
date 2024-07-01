@@ -6,7 +6,7 @@ const MAIN_THEME = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#716d0a',
+      main: '#97920E',
       dark: '#6f6003',
       light: '#81811e',
       contrastText: '#d8d8be',
@@ -19,7 +19,7 @@ const MAIN_THEME = createTheme({
       paper: '#383838',
     },
     text: {
-      primary: '#9a8866',
+      primary: '#BEA87E',
       secondary: 'rgba(218,176,17,0.8)',
       disabled: '#7f7765',
     },

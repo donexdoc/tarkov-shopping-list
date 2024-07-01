@@ -1,16 +1,19 @@
 import {
   Box,
+  Divider,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Typography,
 } from '@mui/material'
 import LanguageSelector from '../LanguageSelector/LanguageSelector'
-import { Home } from '@mui/icons-material'
+import { Dashboard, HandshakeTwoTone } from '@mui/icons-material'
 import { Link as RouterLink, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/redux/store'
 import { setDrawerState } from '@/redux/features/app.slice'
+import SocialLinks from './components/SocialLinks/SocialLinks'
 
 interface NavigationElement {
   title: string
@@ -23,13 +26,13 @@ const navigationList: NavigationElement[] = [
   {
     title: 'Трекер предметов',
     identy: 'tracker',
-    icon: <Home />,
+    icon: <Dashboard />,
     to: '/',
   },
   {
-    title: 'О проекте',
+    title: 'Помощь проекту',
     identy: 'about',
-    icon: <Home />,
+    icon: <HandshakeTwoTone />,
     to: '/about',
   },
 ]
@@ -43,7 +46,22 @@ export default function AppDrawerContent(): JSX.Element {
   }
 
   return (
-    <>
+    <Box width="100%">
+      <Box sx={{ p: 3, textAlign: 'left' }}>
+        <Typography
+          variant="h6"
+          component="h1"
+          sx={{
+            fontWeight: 'bold',
+            color: 'primary.main',
+            letterSpacing: 1,
+            textTransform: 'uppercase',
+          }}
+        >
+          Tarkov Shopping List
+        </Typography>
+      </Box>
+      <Divider />
       <nav>
         {navigationList.map((navigationElement) => {
           return (
@@ -61,9 +79,23 @@ export default function AppDrawerContent(): JSX.Element {
           )
         })}
       </nav>
-      <Box position="absolute" bottom={0} width="100%">
+      <Divider />
+
+      <Box width="100%">
         <LanguageSelector />
       </Box>
-    </>
+
+      <Box
+        sx={{
+          p: 1,
+          width: '100%',
+          bottom: 0,
+          position: 'absolute',
+          textAlign: 'center',
+        }}
+      >
+        <SocialLinks />
+      </Box>
+    </Box>
   )
 }
