@@ -20,7 +20,7 @@ const MAIN_THEME = createTheme({
     },
     text: {
       primary: '#BEA87E',
-      secondary: 'rgba(218,176,17,0.8)',
+      secondary: '#C7B056',
       disabled: '#7f7765',
     },
     error: {
@@ -34,7 +34,7 @@ const MAIN_THEME = createTheme({
     },
   },
 })
-
+// #C7B056
 export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
   return <ThemeProvider theme={MAIN_THEME}>{children}</ThemeProvider>
 }
