@@ -67,14 +67,14 @@ const TrackedItem = ({ trackedItem }: TrackedItemProps): JSX.Element => {
         >
           <CardContent sx={{ flex: '1 0 auto', paddingBottom: 0 }}>
             <Typography variant="h6" component="h6">
-              {trackedItem.item.name}
+              {trackedItem.item.shortName}
             </Typography>
             <Typography
               variant="subtitle2"
               color="text.secondary"
               component="p"
             >
-              {trackedItem.item.shortName}
+              {trackedItem.item.name}
             </Typography>
           </CardContent>
         </Box>

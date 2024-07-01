@@ -70,6 +70,13 @@ const MainListPage = (): JSX.Element => {
 
   return (
     <>
+      <Box
+        sx={{
+          margin: 1,
+        }}
+      >
+        <SupportProjectWidget />
+      </Box>
       <Typography
         variant="h5"
         sx={{
@@ -83,13 +90,6 @@ const MainListPage = (): JSX.Element => {
         Список предметов
       </Typography>
 
-      <Box
-        sx={{
-          margin: 1,
-        }}
-      >
-        <SupportProjectWidget />
-      </Box>
       <Box ref={anchorPopperRef}>
         <SearchBar
           onSearch={searchItems}
@@ -105,6 +105,7 @@ const MainListPage = (): JSX.Element => {
           />
         )}
       </Box>
+
       <Box sx={{ mt: 2 }}>
         <TrackedItems />
       </Box>

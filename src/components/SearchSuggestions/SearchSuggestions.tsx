@@ -44,8 +44,8 @@ const SearchSuggestions = ({
                 />
               </Box>
               <ListItemText
-                primary={suggestion.name}
-                secondary={suggestion.shortName}
+                primary={suggestion.shortName}
+                secondary={suggestion.name}
               />
             </ListItemButton>
           ))}
