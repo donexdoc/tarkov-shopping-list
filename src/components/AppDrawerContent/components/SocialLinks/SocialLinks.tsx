@@ -12,13 +12,13 @@ const socialLinks: LinkElement[] = [
   {
     title: 'GitHub',
     identy: 'gitgub',
-    icon: <GitHub />,
+    icon: <GitHub color="primary" />,
     href: 'https://github.com/donexdoc/tarkov-shopping-list',
   },
   {
     title: 'YouTube',
     identy: 'youtube',
-    icon: <YouTube />,
+    icon: <YouTube color="primary" />,
     href: 'https://www.youtube.com/@DonExCode',
   },
 ]

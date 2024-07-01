@@ -1,5 +1,5 @@
 import { ThemeProvider } from '@emotion/react'
-import { MainThemeProviderProps } from './MainThemeProvider.props'
+import { AppThemeProviderProps } from './AppThemeProvider.props'
 import { createTheme } from '@mui/material'
 
 const MAIN_THEME = createTheme({
@@ -33,17 +33,8 @@ const MAIN_THEME = createTheme({
       main: '#388e3c',
     },
   },
-  components: {
-    MuiSvgIcon: {
-      styleOverrides: {
-        root: {
-          color: '#b8b48f',
-        },
-      },
-    },
-  },
 })
 
-export const MainThemeProvider = ({ children }: MainThemeProviderProps) => {
+export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
   return <ThemeProvider theme={MAIN_THEME}>{children}</ThemeProvider>
 }

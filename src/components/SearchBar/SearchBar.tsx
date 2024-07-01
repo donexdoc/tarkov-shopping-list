@@ -56,14 +56,14 @@ const SearchBar = ({
         startAdornment: (
           <InputAdornment position="start">
             <IconButton onClick={handleSearchSubmit}>
-              <Search />
+              <Search color="primary" />
             </IconButton>
           </InputAdornment>
         ),
         endAdornment: (
           <InputAdornment position="end">
             <IconButton onClick={handleClearSearch}>
-              <Clear />
+              <Clear color="primary" />
             </IconButton>
           </InputAdornment>
         ),

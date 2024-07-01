@@ -1,7 +1,7 @@
 import { ReduxProvider } from '@/redux/provider'
 import { AppLayoutProviderProps } from './AppLayoutProvider.props'
 import { ReduxInitProvider } from '../ReduxInitProvider/ReduxInitProvider'
-import { MainThemeProvider } from '../ThemeProvider/MainThemeProvider'
+import { AppThemeProvider } from '../AppThemeProvider/AppThemeProvider'
 import { AppRouterProvider } from '../AppRouterProvider/RouterProvider'
 
 export const AppLayoutProvider = ({ children }: AppLayoutProviderProps) => {
@@ -9,9 +9,9 @@ export const AppLayoutProvider = ({ children }: AppLayoutProviderProps) => {
     <>
       <ReduxProvider>
         <AppRouterProvider>
-          <MainThemeProvider>
+          <AppThemeProvider>
             <ReduxInitProvider>{children}</ReduxInitProvider>
-          </MainThemeProvider>
+          </AppThemeProvider>
         </AppRouterProvider>
       </ReduxProvider>
     </>

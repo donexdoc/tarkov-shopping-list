@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
 
-export interface MainThemeProviderProps {
+export interface AppThemeProviderProps {
   children: ReactNode
 }

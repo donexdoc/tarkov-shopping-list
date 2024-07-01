@@ -106,7 +106,7 @@ const TrackedItem = ({ trackedItem }: TrackedItemProps): JSX.Element => {
         }}
       >
         <IconButton aria-label="delete" size="small" onClick={removeItem}>
-          <Delete fontSize="small" />
+          <Delete fontSize="small" color="primary" />
         </IconButton>
         <Box
           sx={{
@@ -121,7 +121,7 @@ const TrackedItem = ({ trackedItem }: TrackedItemProps): JSX.Element => {
             size="small"
             onClick={decreaseCounter}
           >
-            <Remove fontSize="small" />
+            <Remove fontSize="small" color="primary" />
           </IconButton>
           <Typography variant="subtitle1">{trackedItem.count}</Typography>
           <IconButton
@@ -129,7 +129,7 @@ const TrackedItem = ({ trackedItem }: TrackedItemProps): JSX.Element => {
             size="small"
             onClick={increaseCounter}
           >
-            <Add fontSize="small" />
+            <Add fontSize="small" color="primary" />
           </IconButton>
         </Box>
         <FoundInRaidButton

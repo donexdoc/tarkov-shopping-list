@@ -60,31 +60,31 @@ const SupportProjectPage = (): JSX.Element => {
       <List>
         <ListItem>
           <ListItemIcon>
-            <Code />
+            <Code color="primary" />
           </ListItemIcon>
           <ListItemText primary="Разработать backend приложение, для будущего расширения функций и оптимизации хранения данных." />
         </ListItem>
         <ListItem>
           <ListItemIcon>
-            <Public />
+            <Public color="primary" />
           </ListItemIcon>
           <ListItemText primary="Приобрести домен и хостинг для этого приложения" />
         </ListItem>
         <ListItem>
           <ListItemIcon>
-            <AddTask />
+            <AddTask color="primary" />
           </ListItemIcon>
           <ListItemText primary="Добавить отдельную вкладку с квестовыми предметами, чтобы по названию квеста добавлять предметы в список" />
         </ListItem>
         <ListItem>
           <ListItemIcon>
-            <Language />
+            <Language color="primary" />
           </ListItemIcon>
           <ListItemText primary="Добавить больше локализаций" />
         </ListItem>
         <ListItem>
           <ListItemIcon>
-            <Code />
+            <Code color="primary" />
           </ListItemIcon>
           <ListItemText primary="Доробатывать пользовательский интерфейс текущего приложения" />
         </ListItem>

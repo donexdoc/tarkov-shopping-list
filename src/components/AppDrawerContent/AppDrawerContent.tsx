@@ -26,13 +26,13 @@ const navigationList: NavigationElement[] = [
   {
     title: 'Трекер предметов',
     identy: 'tracker',
-    icon: <Dashboard />,
+    icon: <Dashboard color="primary" />,
     to: '/',
   },
   {
     title: 'Помощь проекту',
     identy: 'support_project',
-    icon: <HandshakeTwoTone />,
+    icon: <HandshakeTwoTone color="primary" />,
     to: '/support_project',
   },
 ]
