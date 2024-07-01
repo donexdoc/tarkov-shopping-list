@@ -1,5 +1,6 @@
 import SearchBar from '@/components/SearchBar/SearchBar'
 import SearchSuggestions from '@/components/SearchSuggestions/SearchSuggestions'
+import SupportProjectWidget from '@/components/SupportProjectWidget/SupportProjectWidget'
 import TrackedItems from '@/components/TrackedItems/TrackedItems'
 import { addTrackedItem } from '@/redux/features/shoppingList.slice'
 import { AppDispatch, useAppSelector } from '@/redux/store'
@@ -81,6 +82,14 @@ const MainListPage = (): JSX.Element => {
       >
         Список предметов
       </Typography>
+
+      <Box
+        sx={{
+          margin: 1,
+        }}
+      >
+        <SupportProjectWidget />
+      </Box>
       <Box ref={anchorPopperRef}>
         <SearchBar
           onSearch={searchItems}

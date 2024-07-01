@@ -1,6 +1,7 @@
 import {
   AddTask,
   Code,
+  GitHub,
   Language,
   Public,
   VolunteerActivism,
@@ -40,6 +41,17 @@ const SupportProjectPage = (): JSX.Element => {
         усилий. Ваша поддержка поможет мне продолжать развивать и улучшать
         "Tarkov Shopping List", а также реализовывать новые функции.
       </Typography>
+
+      <Box sx={{ mt: 2 }}>
+        <Button
+          startIcon={<GitHub />}
+          href="https://github.com/donexdoc/tarkov-shopping-list"
+          target="_blank"
+          sx={{ m: 1 }}
+        >
+          Исходный код на GitGhub
+        </Button>
+      </Box>
 
       <Typography variant="h6" gutterBottom sx={{ mt: 4 }}>
         Планы на будущее:
@@ -82,7 +94,7 @@ const SupportProjectPage = (): JSX.Element => {
         Как вы можете помочь:
       </Typography>
 
-      <Box sx={{ display: 'flex', justifyContent: 'space-around', mt: 2 }}>
+      <Box sx={{ mt: 2 }}>
         <Button
           variant="contained"
           startIcon={<VolunteerActivism />}
@@ -90,7 +102,7 @@ const SupportProjectPage = (): JSX.Element => {
           target="_blank"
           sx={{ m: 1 }}
         >
-          Поддержать на Boosty
+          Подписка / донат на Boosty
         </Button>
       </Box>
 
