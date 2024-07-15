@@ -1,7 +1,7 @@
 import { IconButton } from '@mui/material'
 
-import questIcon from '@/assets/icons/handbook/icon_quest.png'
 import { FoundInRaidButtonProps } from './FoundInRaidButton.props'
+import { TaskAlt } from '@mui/icons-material'
 
 const FoundInRaidButton = ({
   foundInRaid,
@@ -9,7 +9,7 @@ const FoundInRaidButton = ({
 }: FoundInRaidButtonProps): JSX.Element => {
   return (
     <IconButton
-      size="small"
+      size='small'
       sx={{
         marginLeft: 'auto',
         filter: foundInRaid
@@ -23,10 +23,8 @@ const FoundInRaidButton = ({
       }}
       onClick={onToggle}
     >
-      <img
-        src={questIcon}
-        alt="found in raid"
-        style={{
+      <TaskAlt
+        sx={{
           width: '18px',
           height: '18px',
         }}
