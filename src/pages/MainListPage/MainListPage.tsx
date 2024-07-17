@@ -18,6 +18,7 @@ const MainListPage = (): JSX.Element => {
   const gameItems = useAppSelector((state) => state.itemsDataReducer.elements)
   const dispatch = useDispatch<AppDispatch>()
 
+  const [queryLine, setQueryLine] = useState('')
   const [popperIsOpen, setPopperIsOpen] = useState(false)
   const [suggestions, setSuggestions] = useState<Item[]>([])
   const [anchorPopper, setAnchorPopper] = useState<HTMLElement | null>(null)
@@ -64,9 +65,11 @@ const MainListPage = (): JSX.Element => {
         foundInRaid: true,
       })
     )
+    onSearchClear()
   }
 
   function onSearchClear(): void {
+    setQueryLine('')
     setPopperIsOpen(false)
     setSuggestions([])
   }
@@ -77,7 +80,7 @@ const MainListPage = (): JSX.Element => {
         <SupportProjectWidget />
       </Box>
       <Typography
-        variant="h5"
+        variant='h5'
         sx={{
           textAlign: {
             md: 'left',
@@ -91,6 +94,8 @@ const MainListPage = (): JSX.Element => {
 
       <Box ref={anchorPopperRef}>
         <SearchBar
+          queryLine={queryLine}
+          setQueryLine={setQueryLine}
           onSearch={searchItems}
           onSearchClear={onSearchClear}
           placeholder={t('MainListPage.searchBarPlaceholder')}

@@ -15,7 +15,7 @@ const SearchSuggestions = ({
   suggestionItems,
 }: SearchSuggestionsProps): JSX.Element => {
   return (
-    <Popper open={popperIsOpen} anchorEl={anchorEl} placement="bottom-start">
+    <Popper open={popperIsOpen} anchorEl={anchorEl} placement='bottom-start'>
       <Paper elevation={3}>
         <List sx={{ p: 0 }}>
           {suggestionItems.map((suggestion, id) => (
