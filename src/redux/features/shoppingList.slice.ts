@@ -71,6 +71,7 @@ export const shoppingList = createSlice({
       )
       if (itemIndex !== -1) {
         state.trackedItems[itemIndex].foundInRaid = true
+        saveState(state)
       }
     },
     unsetFoundInRaid: (state, action: PayloadAction<string>) => {
@@ -79,6 +80,7 @@ export const shoppingList = createSlice({
       )
       if (itemIndex !== -1) {
         state.trackedItems[itemIndex].foundInRaid = false
+        saveState(state)
       }
     },
   },
