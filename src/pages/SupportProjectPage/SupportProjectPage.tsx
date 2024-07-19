@@ -1,3 +1,4 @@
+import AlertWidget from '@/components/AlertWidget/AlertWidget'
 import {
   AddTask,
   Code,
@@ -22,9 +23,11 @@ const SupportProjectPage = (): JSX.Element => {
 
   return (
     <Box sx={{ maxWidth: 800, margin: 'auto', padding: 3 }}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant='h4' gutterBottom>
         {t('SupportProjectPage.mainTitle')}
       </Typography>
+
+      <AlertWidget />
 
       <Typography paragraph>{t('SupportProjectPage.p1')}</Typography>
 
@@ -35,61 +38,61 @@ const SupportProjectPage = (): JSX.Element => {
       <Box sx={{ mt: 2 }}>
         <Button
           startIcon={<GitHub />}
-          href="https://github.com/donexdoc/tarkov-shopping-list"
-          target="_blank"
+          href='https://github.com/donexdoc/tarkov-shopping-list'
+          target='_blank'
           sx={{ m: 1 }}
         >
           {t('SupportProjectPage.button.sourceCode')}
         </Button>
       </Box>
 
-      <Typography variant="h6" gutterBottom sx={{ mt: 4 }}>
+      <Typography variant='h6' gutterBottom sx={{ mt: 4 }}>
         {t('SupportProjectPage.futureTitle')}
       </Typography>
 
       <List>
         <ListItem>
           <ListItemIcon>
-            <Code color="primary" />
+            <Code color='primary' />
           </ListItemIcon>
           <ListItemText primary={t('SupportProjectPage.futureGoal1')} />
         </ListItem>
         <ListItem>
           <ListItemIcon>
-            <Public color="primary" />
+            <Public color='primary' />
           </ListItemIcon>
           <ListItemText primary={t('SupportProjectPage.futureGoal2')} />
         </ListItem>
         <ListItem>
           <ListItemIcon>
-            <AddTask color="primary" />
+            <AddTask color='primary' />
           </ListItemIcon>
           <ListItemText primary={t('SupportProjectPage.futureGoal3')} />
         </ListItem>
         <ListItem>
           <ListItemIcon>
-            <Language color="primary" />
+            <Language color='primary' />
           </ListItemIcon>
           <ListItemText primary={t('SupportProjectPage.futureGoal4')} />
         </ListItem>
         <ListItem>
           <ListItemIcon>
-            <Code color="primary" />
+            <Code color='primary' />
           </ListItemIcon>
           <ListItemText primary={t('SupportProjectPage.futureGoal5')} />
         </ListItem>
       </List>
 
-      <Typography variant="h6" gutterBottom sx={{ mt: 4 }}>
+      <Typography variant='h6' gutterBottom sx={{ mt: 4 }}>
         {t('SupportProjectPage.supportTitle')}
       </Typography>
 
       <Box sx={{ mt: 2 }}>
         <Button
-          variant="contained"
+          variant='contained'
           startIcon={<VolunteerActivism />}
-          href="https://boosty.to/donex"
-          target="_blank"
+          href='https://boosty.to/donex'
+          target='_blank'
           sx={{ m: 1 }}
         >
           {t('SupportProjectPage.button.support')}
