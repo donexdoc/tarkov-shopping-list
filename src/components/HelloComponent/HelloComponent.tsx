@@ -1,49 +1,19 @@
-import { setLanguage } from '@/redux/features/app.slice'
-import { AppDispatch, useAppSelector } from '@/redux/store'
-import { LANGUAGES } from '@/store/constatnts'
-import { useEffect } from 'react'
+import { FAVORITE_CATEGORIES } from '@/store/constatnts'
 import { useTranslation } from 'react-i18next'
-import { useDispatch } from 'react-redux'
 
 const HelloComponent = (): JSX.Element => {
-  const items = useAppSelector((state) => state.itemsDataReducer.elements)
-
   const { t } = useTranslation()
-
-  useEffect(() => {
-    console.log(items)
-  }, [items])
-
-  const dispatch = useDispatch<AppDispatch>()
-  const changeLanguage = (newLanguage: LANGUAGES) => {
-    dispatch(setLanguage(newLanguage))
-  }
 
   return (
     <>
       <h1> Hello!</h1>
       <h1> {t('test')}</h1>
       <br />
+
       <div>
-        <button
-          onClick={() => {
-            changeLanguage(LANGUAGES.EN)
-          }}
-        >
-          EN
-        </button>
-        <button
-          onClick={() => {
-            changeLanguage(LANGUAGES.RU)
-          }}
-        >
-          RU
-        </button>
-      </div>
-      <div>
-        {items.slice(0, 10).map((item, index) => (
-          <div key={index}>
-            <h4>{item.name}</h4>
+        {FAVORITE_CATEGORIES.map((item) => (
+          <div key={item.id}>
+            <h4>{t(item.name)}</h4>
           </div>
         ))}
       </div>

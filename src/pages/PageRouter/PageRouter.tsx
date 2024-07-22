@@ -5,8 +5,8 @@ import { Route, Routes } from 'react-router-dom'
 const PageRouter = (): JSX.Element => {
   return (
     <Routes>
-      <Route path="/" element={<MainListPage />} />
-      <Route path="/support_project" element={<SupportProjectPage />} />
+      <Route path='/' element={<MainListPage />} />
+      <Route path='/support_project' element={<SupportProjectPage />} />
     </Routes>
   )
 }

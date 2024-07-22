@@ -26,5 +26,11 @@
 
   "SupportAlert.text": "BSG уже внедрила похожий функционал в игру. Но если вы хотите развития проекта, то можете поддержать и тогда проект будет развиваться!",
 
+  "ItemFavorites.Other": "Прочее",
+  "ItemFavorites.Tasks": "Задачи",
+  "ItemFavorites.Equipment": "Снаряжение",
+  "ItemFavorites.Hideout": "Убежище",
+  "ItemFavorites.Barter": "Бартер",
+
   "test": "Тестовое сообщение"
 }

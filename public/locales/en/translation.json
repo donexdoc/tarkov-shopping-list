@@ -26,5 +26,11 @@
 
   "SupportAlert.text": "BSG has already implemented similar functionality in the game. However, if you want this project to develop further, you can support it, and then the project will continue to grow!",
 
+  "ItemFavorites.Other": "Other",
+  "ItemFavorites.Tasks": "Tasks",
+  "ItemFavorites.Equipment": "Equipment",
+  "ItemFavorites.Hideout": "Hideout",
+  "ItemFavorites.Barter": "Barter",
+
   "test": "Test message"
 }
