@@ -16,6 +16,8 @@ import { setDrawerState } from '@/redux/features/app.slice'
 import SocialLinks from './components/SocialLinks/SocialLinks'
 import { useTranslation } from 'react-i18next'
 
+import logoImage from '@/assets/logo.png'
+
 interface NavigationElement {
   title: string
   identy: string
@@ -27,13 +29,13 @@ const navigationList: NavigationElement[] = [
   {
     title: 'AppDrawerContent.navigation.tracker',
     identy: 'tracker',
-    icon: <Dashboard color="primary" />,
+    icon: <Dashboard color='primary' />,
     to: '/',
   },
   {
     title: 'AppDrawerContent.navigation.supportProject',
     identy: 'support_project',
-    icon: <HandshakeTwoTone color="primary" />,
+    icon: <HandshakeTwoTone color='primary' />,
     to: '/support_project',
   },
 ]
@@ -48,11 +50,29 @@ export default function AppDrawerContent(): JSX.Element {
   }
 
   return (
-    <Box width="100%">
-      <Box sx={{ p: 3, textAlign: 'left' }}>
+    <Box width='100%'>
+      <Box
+        sx={{
+          p: 3,
+          textAlign: 'left',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 1,
+        }}
+      >
+        <img
+          src={logoImage}
+          alt='logo image'
+          style={{
+            maxWidth: '80%',
+            alignSelf: 'center',
+            WebkitFilter: 'drop-shadow(0px 0px 10px #343e4c)',
+            filter: 'drop-shadow(0px 0px 10px #343e4c)',
+          }}
+        />
         <Typography
-          variant="h6"
-          component="h1"
+          variant='h6'
+          component='h1'
           sx={{
             fontWeight: 'bold',
             color: 'primary.main',
@@ -83,7 +103,7 @@ export default function AppDrawerContent(): JSX.Element {
       </nav>
       <Divider />
 
-      <Box width="100%">
+      <Box width='100%'>
         <LanguageSelector />
       </Box>
 
