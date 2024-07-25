@@ -1,11 +1,13 @@
 import { Drawer } from '@mui/material'
-import { AppDrawerProps } from './AppDrawer.props'
-import { useDispatch } from 'react-redux'
-import { AppDispatch, useAppSelector } from '@/redux/store'
-import { setDrawerState } from '@/redux/features/app.slice'
-import { APP_DRAWER_WIDTH } from '@/store/constatnts'
-import AppDrawerContent from '../AppDrawerContent/AppDrawerContent'
 import { useCallback } from 'react'
+import { useDispatch } from 'react-redux'
+
+import { setDrawerState } from '@/app/model/app.slice'
+import { AppDispatch, useAppSelector } from '@/app/store'
+import { APP_DRAWER_WIDTH } from '@/shared/config/constatnts'
+
+import AppDrawerContent from '../AppDrawerContent/AppDrawerContent'
+import { AppDrawerProps } from './AppDrawer.props'
 
 export default function AppDrawer({ window }: AppDrawerProps): JSX.Element {
   const drawerState = useAppSelector((state) => state.appReducer.drawerState)
@@ -24,7 +26,7 @@ export default function AppDrawer({ window }: AppDrawerProps): JSX.Element {
     <>
       <Drawer
         container={getContainer()}
-        variant="temporary"
+        variant='temporary'
         open={drawerState}
         onClose={drawerClose}
         ModalProps={{ keepMounted: true }}
@@ -39,7 +41,7 @@ export default function AppDrawer({ window }: AppDrawerProps): JSX.Element {
         <AppDrawerContent />
       </Drawer>
       <Drawer
-        variant="permanent"
+        variant='permanent'
         open
         sx={{
           display: { xs: 'none', sm: 'none', md: 'block' },

@@ -1,8 +1,10 @@
-import { ReduxInitProviderProps } from './ReduxInitProvider.props'
 import { useEffect } from 'react'
-import { initializeApp } from '@/redux/features/app.slice'
 import { useDispatch } from 'react-redux'
-import { AppDispatch } from '@/redux/store'
+
+import { initializeApp } from '@/app/model/app.slice'
+import { AppDispatch } from '@/app/store'
+
+import { ReduxInitProviderProps } from './ReduxInitProvider.props'
 
 export const ReduxInitProvider = ({ children }: ReduxInitProviderProps) => {
   const dispatch = useDispatch<AppDispatch>()

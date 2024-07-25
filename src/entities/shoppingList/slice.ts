@@ -1,5 +1,6 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { TrackItem } from '@/store/types/trackItem'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
+import { TrackItem } from '@/shared/types/trackItem'
 
 const SLICE_NAME = 'shoppingList'
 

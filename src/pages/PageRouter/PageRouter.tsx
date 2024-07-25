@@ -1,6 +1,7 @@
+import { Route, Routes } from 'react-router-dom'
+
 import MainListPage from '../MainListPage/MainListPage'
 import SupportProjectPage from '../SupportProjectPage/SupportProjectPage'
-import { Route, Routes } from 'react-router-dom'
 
 const PageRouter = (): JSX.Element => {
   return (

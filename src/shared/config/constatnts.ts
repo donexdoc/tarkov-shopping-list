@@ -1,4 +1,4 @@
-import { ItemFavoriteCategory } from './types/itemFavoriteCategory'
+import { ItemFavoriteCategory } from '../types/itemFavoriteCategory'
 
 export const APP_DRAWER_WIDTH = 240
 export const APP_DEFAULT_TITLE = 'TSL'

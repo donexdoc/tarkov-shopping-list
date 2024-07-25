@@ -1,8 +1,10 @@
-import { Box, Grid, Typography } from '@mui/material'
-import { useAppSelector } from '@/redux/store'
-import TrackedItem from './components/TrackedItem/TrackedItem'
 import { PlaylistAdd } from '@mui/icons-material'
+import { Box, Grid, Typography } from '@mui/material'
 import { useTranslation } from 'react-i18next'
+
+import { useAppSelector } from '@/app/store'
+
+import TrackedItem from './components/TrackedItem/TrackedItem'
 
 const TrackedItems = (): JSX.Element => {
   const trackedItems = useAppSelector(
@@ -23,10 +25,10 @@ const TrackedItems = (): JSX.Element => {
         }}
       >
         <PlaylistAdd sx={{ fontSize: 60, color: 'text.secondary', mb: 2 }} />
-        <Typography variant="h6" color="text.secondary">
+        <Typography variant='h6' color='text.secondary'>
           {t('TrackedItems.emptyList.title')}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant='body2' color='text.secondary'>
           {t('TrackedItems.emptyList.tip')}
         </Typography>
       </Box>

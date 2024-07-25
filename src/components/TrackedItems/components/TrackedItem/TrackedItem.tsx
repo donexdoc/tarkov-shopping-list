@@ -1,3 +1,4 @@
+import { Add, Delete, Remove } from '@mui/icons-material'
 import {
   Box,
   Card,
@@ -6,19 +7,19 @@ import {
   IconButton,
   Typography,
 } from '@mui/material'
-import { Add, Delete, Remove } from '@mui/icons-material'
+import { useDispatch } from 'react-redux'
 
-import { TrackedItemProps } from './TrackedItem.props'
+import { AppDispatch } from '@/app/store'
 import {
   decreaseItemCount,
   increaseItemCount,
   removeTrackedItem,
   setFoundInRaid,
   unsetFoundInRaid,
-} from '@/redux/features/shoppingList.slice'
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from '@/redux/store'
+} from '@/entities/shoppingList/slice'
+
 import FoundInRaidButton from '../FoundInRaidButton/FoundInRaidButton'
+import { TrackedItemProps } from './TrackedItem.props'
 
 const TrackedItem = ({ trackedItem }: TrackedItemProps): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>()
@@ -66,13 +67,13 @@ const TrackedItem = ({ trackedItem }: TrackedItemProps): JSX.Element => {
           }}
         >
           <CardContent sx={{ flex: '1 0 auto', paddingBottom: 0 }}>
-            <Typography variant="h6" component="h6">
+            <Typography variant='h6' component='h6'>
               {trackedItem.item.shortName}
             </Typography>
             <Typography
-              variant="subtitle2"
-              color="text.secondary"
-              component="p"
+              variant='subtitle2'
+              color='text.secondary'
+              component='p'
             >
               {trackedItem.item.name}
             </Typography>
@@ -80,7 +81,7 @@ const TrackedItem = ({ trackedItem }: TrackedItemProps): JSX.Element => {
         </Box>
 
         <CardMedia
-          component="img"
+          component='img'
           sx={{
             maxWidth: 100,
             maxHeight: 100,
@@ -105,8 +106,8 @@ const TrackedItem = ({ trackedItem }: TrackedItemProps): JSX.Element => {
           mt: 'auto',
         }}
       >
-        <IconButton aria-label="delete" size="small" onClick={removeItem}>
-          <Delete fontSize="small" color="primary" />
+        <IconButton aria-label='delete' size='small' onClick={removeItem}>
+          <Delete fontSize='small' color='primary' />
         </IconButton>
         <Box
           sx={{
@@ -117,19 +118,19 @@ const TrackedItem = ({ trackedItem }: TrackedItemProps): JSX.Element => {
           }}
         >
           <IconButton
-            aria-label="delete"
-            size="small"
+            aria-label='delete'
+            size='small'
             onClick={decreaseCounter}
           >
-            <Remove fontSize="small" color="primary" />
+            <Remove fontSize='small' color='primary' />
           </IconButton>
-          <Typography variant="subtitle1">{trackedItem.count}</Typography>
+          <Typography variant='subtitle1'>{trackedItem.count}</Typography>
           <IconButton
-            aria-label="increase"
-            size="small"
+            aria-label='increase'
+            size='small'
             onClick={increaseCounter}
           >
-            <Add fontSize="small" color="primary" />
+            <Add fontSize='small' color='primary' />
           </IconButton>
         </Box>
         <FoundInRaidButton

@@ -1,9 +1,10 @@
-import { toggleDrawerState } from '@/redux/features/app.slice'
-import { AppDispatch, useAppSelector } from '@/redux/store'
-import { APP_DRAWER_WIDTH } from '@/store/constatnts'
 import { Menu } from '@mui/icons-material'
 import { AppBar, IconButton, Toolbar, Typography } from '@mui/material'
 import { useDispatch } from 'react-redux'
+
+import { toggleDrawerState } from '@/app/model/app.slice'
+import { AppDispatch, useAppSelector } from '@/app/store'
+import { APP_DRAWER_WIDTH } from '@/shared/config/constatnts'
 
 export default function MainAppBar(): JSX.Element {
   const dispatch = useDispatch<AppDispatch>()
@@ -15,7 +16,7 @@ export default function MainAppBar(): JSX.Element {
 
   return (
     <AppBar
-      position="fixed"
+      position='fixed'
       sx={{
         width: { md: `calc(100% - ${APP_DRAWER_WIDTH}px)` },
         ml: { md: `${APP_DRAWER_WIDTH}px` },
@@ -23,15 +24,15 @@ export default function MainAppBar(): JSX.Element {
     >
       <Toolbar>
         <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="start"
+          color='inherit'
+          aria-label='open drawer'
+          edge='start'
           onClick={drawerOpen}
           sx={{ mr: 2, display: { md: 'none' } }}
         >
           <Menu />
         </IconButton>
-        <Typography variant="h6" noWrap component="div">
+        <Typography variant='h6' noWrap component='div'>
           {appTitleState}
         </Typography>
       </Toolbar>

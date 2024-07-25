@@ -1,9 +1,11 @@
-import { AppLayoutProvider } from '@/providers/AppLayoutProvider/AppLayoutProvider'
-import { AppLayoutProps } from './AppLayoutProps'
 import { Box, CssBaseline, Toolbar } from '@mui/material'
-import { APP_DRAWER_WIDTH } from '@/store/constatnts'
-import MainAppBar from '@/components/MainAppBar/MainAppBar'
+
+import { AppLayoutProvider } from '@/app/providers/AppLayoutProvider/AppLayoutProvider'
 import AppDrawer from '@/components/AppDrawer/AppDrawer'
+import MainAppBar from '@/components/MainAppBar/MainAppBar'
+import { APP_DRAWER_WIDTH } from '@/shared/config/constatnts'
+
+import { AppLayoutProps } from './AppLayout.props'
 
 export const AppLayout = ({ children }: AppLayoutProps): JSX.Element => {
   return (
@@ -15,15 +17,15 @@ export const AppLayout = ({ children }: AppLayoutProps): JSX.Element => {
         <CssBaseline />
         <MainAppBar />
         <Box
-          component="nav"
+          component='nav'
           sx={{ width: { md: APP_DRAWER_WIDTH }, flexShrink: { sm: 0 } }}
-          aria-label="mailbox folders"
+          aria-label='mailbox folders'
         >
           <AppDrawer />
         </Box>
 
         <Box
-          component="main"
+          component='main'
           sx={{
             flexGrow: 1,
             p: 3,

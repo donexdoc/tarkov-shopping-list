@@ -1,14 +1,15 @@
-import SearchBar from '@/components/SearchBar/SearchBar'
-import SearchSuggestions from '@/components/SearchSuggestions/SearchSuggestions'
-import SupportProjectWidget from '@/components/SupportProjectWidget/SupportProjectWidget'
-import TrackedItems from '@/components/TrackedItems/TrackedItems'
-import { addTrackedItem } from '@/redux/features/shoppingList.slice'
-import { AppDispatch, useAppSelector } from '@/redux/store'
-import { Item } from '@/store/types/item'
 import { Box, Typography } from '@mui/material'
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
+
+import { AppDispatch, useAppSelector } from '@/app/store'
+import SearchBar from '@/components/SearchBar/SearchBar'
+import SearchSuggestions from '@/components/SearchSuggestions/SearchSuggestions'
+import SupportProjectWidget from '@/components/SupportProjectWidget/SupportProjectWidget'
+import TrackedItems from '@/components/TrackedItems/TrackedItems'
+import { addTrackedItem } from '@/entities/shoppingList/slice'
+import { Item } from '@/shared/types/item'
 
 const SUGGESTION_LIMIT = 7
 

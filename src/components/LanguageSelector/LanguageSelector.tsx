@@ -1,6 +1,3 @@
-import { setLanguage } from '@/redux/features/app.slice'
-import { AppDispatch, useAppSelector } from '@/redux/store'
-import { LANGUAGES } from '@/store/constatnts'
 import { Translate } from '@mui/icons-material'
 import {
   Box,
@@ -13,6 +10,10 @@ import {
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
+
+import { setLanguage } from '@/app/model/app.slice'
+import { AppDispatch, useAppSelector } from '@/app/store'
+import { LANGUAGES } from '@/shared/config/constatnts'
 
 const LanguageSelector = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>()
@@ -30,13 +31,13 @@ const LanguageSelector = (): JSX.Element => {
   return (
     <Box sx={{ p: 1, mt: 1, width: '100%' }}>
       <FormControl fullWidth>
-        <InputLabel id="language-select-label">Language</InputLabel>
+        <InputLabel id='language-select-label'>Language</InputLabel>
         <Select
-          labelId="language-select-label"
-          id="language-select"
+          labelId='language-select-label'
+          id='language-select'
           value={language}
           onChange={changeLanguage}
-          label="Language"
+          label='Language'
           startAdornment={<Translate sx={{ mr: 1, ml: -0.5 }} />}
         >
           {Object.values(LANGUAGES).map((value) => (

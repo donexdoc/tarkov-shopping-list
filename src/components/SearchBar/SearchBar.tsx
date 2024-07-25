@@ -1,6 +1,7 @@
 import { Clear, Search } from '@mui/icons-material'
-import { IconButton, InputAdornment, TextField, debounce } from '@mui/material'
+import { debounce, IconButton, InputAdornment, TextField } from '@mui/material'
 import { useEffect, useMemo } from 'react'
+
 import { SearchBarProps } from './SearchBar.props'
 
 const SearchBar = ({

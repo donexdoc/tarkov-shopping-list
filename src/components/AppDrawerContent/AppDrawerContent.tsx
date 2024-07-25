@@ -1,3 +1,4 @@
+import { Dashboard, HandshakeTwoTone } from '@mui/icons-material'
 import {
   Box,
   Divider,
@@ -7,16 +8,16 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material'
-import LanguageSelector from '../LanguageSelector/LanguageSelector'
-import { Dashboard, HandshakeTwoTone } from '@mui/icons-material'
-import { Link as RouterLink, useLocation } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from '@/redux/store'
-import { setDrawerState } from '@/redux/features/app.slice'
-import SocialLinks from './components/SocialLinks/SocialLinks'
 import { useTranslation } from 'react-i18next'
+import { useDispatch } from 'react-redux'
+import { Link as RouterLink, useLocation } from 'react-router-dom'
 
-import logoImage from '@/assets/logo.png'
+import { setDrawerState } from '@/app/model/app.slice'
+import { AppDispatch } from '@/app/store'
+import logoImage from '@/shared/assets/logo.png'
+
+import LanguageSelector from '../LanguageSelector/LanguageSelector'
+import SocialLinks from './components/SocialLinks/SocialLinks'
 
 interface NavigationElement {
   title: string

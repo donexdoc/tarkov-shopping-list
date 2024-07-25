@@ -6,6 +6,7 @@ import {
   Paper,
   Popper,
 } from '@mui/material'
+
 import { SearchSuggestionsProps } from './SearchSuggestions.props'
 
 const SearchSuggestions = ({

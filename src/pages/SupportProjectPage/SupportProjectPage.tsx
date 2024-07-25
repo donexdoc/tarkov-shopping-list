@@ -1,4 +1,3 @@
-import AlertWidget from '@/components/AlertWidget/AlertWidget'
 import {
   AddTask,
   Code,
@@ -17,6 +16,8 @@ import {
   Typography,
 } from '@mui/material'
 import { useTranslation } from 'react-i18next'
+
+import AlertWidget from '@/components/AlertWidget/AlertWidget'
 
 const SupportProjectPage = (): JSX.Element => {
   const { t } = useTranslation()

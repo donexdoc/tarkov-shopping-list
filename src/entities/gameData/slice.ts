@@ -1,10 +1,11 @@
 import {
-  Draft,
-  PayloadAction,
   createAsyncThunk,
   createSlice,
+  Draft,
+  PayloadAction,
 } from '@reduxjs/toolkit'
-import { LANGUAGES } from '@/store/constatnts'
+
+import { LANGUAGES } from '@/shared/config/constatnts'
 
 export interface GameDataInitialState<T> {
   elements: T[]

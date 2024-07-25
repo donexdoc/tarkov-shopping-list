@@ -1,11 +1,11 @@
-import { Item } from '@/store/types/item'
-import { LANGUAGES } from '@/store/constatnts'
+import { LANGUAGES } from '@/shared/config/constatnts'
+import { Item } from '@/shared/types/item'
 
 import {
-  GameDataInitialState,
   createGameDataSlice,
   createLoadElements,
-} from './gameData.slice'
+  GameDataInitialState,
+} from '../gameData/slice'
 
 const SLICE_NAME = 'itemsData'
 const initialState: GameDataInitialState<Item> = {

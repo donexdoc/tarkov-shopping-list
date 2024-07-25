@@ -1,7 +1,7 @@
+import { TaskAlt } from '@mui/icons-material'
 import { IconButton } from '@mui/material'
 
 import { FoundInRaidButtonProps } from './FoundInRaidButton.props'
-import { TaskAlt } from '@mui/icons-material'
 
 const FoundInRaidButton = ({
   foundInRaid,

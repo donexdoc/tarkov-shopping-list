@@ -1,6 +1,8 @@
-import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { APP_TITLE, LANGUAGES, PAGES } from '@/store/constatnts'
-import { loadItems } from './itemsData.slice'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+
+import { APP_TITLE, LANGUAGES, PAGES } from '@/shared/config/constatnts'
+
+import { loadItems } from '../../entities/itemsData/slice'
 import { RootState } from '../store'
 
 export const SLICE_NAME = 'app'

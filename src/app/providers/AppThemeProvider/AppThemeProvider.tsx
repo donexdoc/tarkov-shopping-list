@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@emotion/react'
-import { AppThemeProviderProps } from './AppThemeProvider.props'
 import { createTheme } from '@mui/material'
+
+import { AppThemeProviderProps } from './AppThemeProvider.props'
 
 const MAIN_THEME = createTheme({
   palette: {

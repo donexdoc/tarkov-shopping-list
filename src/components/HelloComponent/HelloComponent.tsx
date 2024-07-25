@@ -1,5 +1,6 @@
-import { FAVORITE_CATEGORIES } from '@/store/constatnts'
 import { useTranslation } from 'react-i18next'
+
+import { FAVORITE_CATEGORIES } from '@/shared/config/constatnts'
 
 const HelloComponent = (): JSX.Element => {
   const { t } = useTranslation()

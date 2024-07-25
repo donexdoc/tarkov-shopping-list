@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useSelector } from 'react-redux'
-import appReducer from './features/app.slice'
-import itemsDataReducer from './features/itemsData.slice'
-import shoppingList from './features/shoppingList.slice'
+
+import appReducer from '@/app/model/app.slice'
+import itemsDataReducer from '@/entities/itemsData/slice'
+import shoppingList from '@/entities/shoppingList/slice'
 
 export const store = configureStore({
   reducer: {
