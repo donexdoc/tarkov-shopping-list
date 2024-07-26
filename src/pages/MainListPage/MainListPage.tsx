@@ -4,12 +4,12 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 
 import { AppDispatch, useAppSelector } from '@/app/store'
-import SearchBar from '@/components/SearchBar/SearchBar'
-import SearchSuggestions from '@/components/SearchSuggestions/SearchSuggestions'
-import SupportProjectWidget from '@/components/SupportProjectWidget/SupportProjectWidget'
-import TrackedItems from '@/components/TrackedItems/TrackedItems'
 import { addTrackedItem } from '@/entities/shoppingList/slice'
 import { Item } from '@/shared/types/item'
+import SupportProjectWidget from '@/shared/ui/SupportProjectWidget/SupportProjectWidget'
+import SearchBar from '@/widgets/SearchBar/ui/SearchBar'
+import SearchSuggestions from '@/widgets/SearchSuggestions/ui/SearchSuggestions'
+import TrackedItems from '@/widgets/TrackedItems/ui/TrackedItems'
 
 const SUGGESTION_LIMIT = 7
 

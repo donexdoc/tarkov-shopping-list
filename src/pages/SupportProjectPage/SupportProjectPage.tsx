@@ -17,7 +17,7 @@ import {
 } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 
-import AlertWidget from '@/components/AlertWidget/AlertWidget'
+import ExistsFeaturesNotice from '@/shared/ui/ExistsFeaturesNotice/ExistsFeaturesNotice'
 
 const SupportProjectPage = (): JSX.Element => {
   const { t } = useTranslation()
@@ -28,7 +28,7 @@ const SupportProjectPage = (): JSX.Element => {
         {t('SupportProjectPage.mainTitle')}
       </Typography>
 
-      <AlertWidget />
+      <ExistsFeaturesNotice />
 
       <Typography paragraph>{t('SupportProjectPage.p1')}</Typography>
 
