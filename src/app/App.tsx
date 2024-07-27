@@ -1,8 +1,7 @@
 import './styles/App.css'
 
 import { AppLayout } from '@/layouts/AppLayout/AppLayout'
-
-import PageRouter from '../pages/PageRouter/PageRouter'
+import PageRouter from '@/processes/routing/ui/PageRouter'
 
 function App() {
   return (

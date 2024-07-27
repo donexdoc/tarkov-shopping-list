@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 
-import MainListPage from '../MainListPage/MainListPage'
-import SupportProjectPage from '../SupportProjectPage/SupportProjectPage'
+import MainListPage from '@/pages/MainListPage/MainListPage'
+import SupportProjectPage from '@/pages/SupportProjectPage/SupportProjectPage'
 
 const PageRouter = (): JSX.Element => {
   return (
