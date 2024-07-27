@@ -3,6 +3,7 @@ import { Box, Divider } from '@mui/material'
 import LanguageSelector from '@/features/languageSelector/ui/LanguageSelector'
 import Navigation from '@/features/navigation/ui/Navigation'
 import AppLogo from '@/shared/ui/AppLogo/AppLogo'
+import VersionDisplay from '@/shared/ui/AppVersion/AppVersion'
 import SocialLinks from '@/shared/ui/SocialLinks/SocialLinks'
 
 export default function AppDrawerContent(): JSX.Element {
@@ -36,7 +37,12 @@ export default function AppDrawerContent(): JSX.Element {
           textAlign: 'center',
         }}
       >
-        <SocialLinks />
+        <Box>
+          <SocialLinks />
+        </Box>
+        <Box>
+          <VersionDisplay />
+        </Box>
       </Box>
     </Box>
   )
