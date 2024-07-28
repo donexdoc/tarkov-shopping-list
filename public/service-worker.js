@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tarkov-shopping-list-v1';
+const CACHE_NAME = 'tarkov-shopping-list-v1'
 const urlsToCache = [
   '/',
   '/index.html',
@@ -9,16 +9,16 @@ const urlsToCache = [
   '/favicon192.png',
   '/favicon256.png',
   '/favicon64.png',
-];
+]
 
 function shouldCache(url) {
   return urlsToCache.some((cacheUrl) => {
     if (cacheUrl.endsWith('*')) {
-      const prefix = cacheUrl.slice(0, -1);
-      return url.startsWith(prefix);
+      const prefix = cacheUrl.slice(0, -1)
+      return url.startsWith(prefix)
     }
-    return url === cacheUrl;
-  });
+    return url === cacheUrl
+  })
 }
 
 self.addEventListener('install', (event) => {
@@ -28,44 +28,41 @@ self.addEventListener('install', (event) => {
         urlsToCache
           .filter((url) => !url.endsWith('*'))
           .map((url) => {
-            return fetch(url)
-              .then((response) => {
-                if (!response.ok) {
-                  throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return cache.put(url, response);
-              })
-              .then(() => console.log('Successfully cached:', url))
-              .catch((err) => console.error('Failed to cache:', url, err));
+            return fetch(url).then((response) => {
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`)
+              }
+              return cache.put(url, response)
+            })
           })
-      );
+      )
     })
-  );
-});
+  )
+})
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
       if (response) {
-        return response;
+        return response
       }
 
-      const fetchRequest = event.request.clone();
+      const fetchRequest = event.request.clone()
 
       return fetch(fetchRequest).then((response) => {
         if (!response || response.status !== 200 || response.type !== 'basic') {
-          return response;
+          return response
         }
 
         if (shouldCache(event.request.url)) {
-          const responseToCache = response.clone();
+          const responseToCache = response.clone()
           caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
+            cache.put(event.request, responseToCache)
+          })
         }
 
-        return response;
-      });
+        return response
+      })
     })
-  );
-});
+  )
+})

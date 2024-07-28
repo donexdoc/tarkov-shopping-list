@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+import { isDevMode } from '@/shared/lib/debug/envCheck'
 import { TrackItem } from '@/shared/types/trackItem'
 
 const SLICE_NAME = 'shoppingList'
@@ -25,7 +26,9 @@ const saveState = (state: IInitialState) => {
     const serializedState = JSON.stringify(state)
     localStorage.setItem(SLICE_NAME, serializedState)
   } catch (e) {
-    console.log('Saving state error: ', e)
+    if (isDevMode()) {
+      console.log('Saving state error: ', e)
+    }
   }
 }
 

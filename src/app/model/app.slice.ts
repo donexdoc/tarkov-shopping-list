@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { loadItems } from '@/entities/itemsData/slice'
 import { APP_TITLE, LANGUAGE_EN, PAGES } from '@/shared/config/constatnts'
+import { isDevMode } from '@/shared/lib/debug/envCheck'
 import { ILanguage } from '@/shared/types/language'
 
 import { RootState } from '../store'
@@ -33,7 +34,9 @@ const saveState = (state: IAppInitialState) => {
     const serializedState = JSON.stringify(state)
     localStorage.setItem(SLICE_NAME, serializedState)
   } catch (e) {
-    console.log('Saving state error: ', e)
+    if (isDevMode()) {
+      console.log('Saving state error: ', e)
+    }
   }
 }
 
