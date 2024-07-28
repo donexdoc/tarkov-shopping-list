@@ -1,27 +1,22 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { APP_TITLE, LANGUAGES, PAGES } from '@/shared/config/constatnts'
+import { loadItems } from '@/entities/itemsData/slice'
+import { APP_TITLE, LANGUAGE_EN, PAGES } from '@/shared/config/constatnts'
+import { ILanguage } from '@/shared/types/language'
 
-import { loadItems } from '../../entities/itemsData/slice'
 import { RootState } from '../store'
+import { IAppInitialState } from './types'
 
 export const SLICE_NAME = 'app'
 
-interface IInitialState {
-  drawerState: boolean
-  currentPage: PAGES
-  appTitle: string
-  language: LANGUAGES
-}
-
-const defaultInitialState: IInitialState = {
+const defaultInitialState: IAppInitialState = {
   drawerState: false,
   currentPage: PAGES.mainList,
   appTitle: APP_TITLE,
-  language: LANGUAGES.EN,
+  language: LANGUAGE_EN,
 }
 
-const loadState = (): IInitialState => {
+const loadState = (): IAppInitialState => {
   try {
     const serializedState = localStorage.getItem(SLICE_NAME)
     if (serializedState === null) {
@@ -33,7 +28,7 @@ const loadState = (): IInitialState => {
   }
 }
 
-const saveState = (state: IInitialState) => {
+const saveState = (state: IAppInitialState) => {
   try {
     const serializedState = JSON.stringify(state)
     localStorage.setItem(SLICE_NAME, serializedState)
@@ -42,19 +37,19 @@ const saveState = (state: IInitialState) => {
   }
 }
 
-const initialState: IInitialState = loadState()
+const initialState: IAppInitialState = loadState()
 
 export const initializeApp = createAsyncThunk(
   'app/initialize',
   async (_, { dispatch, getState }) => {
     const state = getState() as RootState
-    await dispatch(loadItems(state.appReducer.language as LANGUAGES))
+    await dispatch(loadItems(state.appReducer.language as ILanguage))
   }
 )
 
 export const setLanguage = createAsyncThunk(
   'app/setLanguage',
-  async (language: LANGUAGES, { dispatch }) => {
+  async (language: ILanguage, { dispatch }) => {
     await dispatch(loadItems(language))
     return language
   }
@@ -84,7 +79,7 @@ export const appSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(
       setLanguage.fulfilled,
-      (state, action: PayloadAction<LANGUAGES>) => {
+      (state, action: PayloadAction<ILanguage>) => {
         state.language = action.payload
         saveState(state)
       }

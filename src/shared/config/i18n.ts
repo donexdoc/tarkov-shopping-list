@@ -3,14 +3,14 @@ import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector/cjs
 import I18NextHttpBackend from 'i18next-http-backend'
 import { initReactI18next } from 'react-i18next'
 
-import { LANGUAGES } from './constatnts'
+import { LANGUAGE_EN } from './constatnts'
 
 i18next
   .use(I18NextHttpBackend)
   .use(I18nextBrowserLanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: LANGUAGES.EN,
+    fallbackLng: LANGUAGE_EN.code,
     debug: import.meta.env.MODE === 'development',
     interpolation: {
       escapeValue: false,

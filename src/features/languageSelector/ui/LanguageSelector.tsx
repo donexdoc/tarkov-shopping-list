@@ -14,20 +14,26 @@ import { useDispatch } from 'react-redux'
 import { setLanguage } from '@/app/model/app.slice'
 import { AppDispatch, useAppSelector } from '@/app/store'
 import { LANGUAGES } from '@/shared/config/constatnts'
+import { ILanguage } from '@/shared/types/language'
 
 const LanguageSelector = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>()
-  const language = useAppSelector((store) => store.appReducer.language)
+  const languageCode = useAppSelector((store) => store.appReducer.language.code)
   const { i18n } = useTranslation()
 
-  const changeLanguage = (event: SelectChangeEvent<LANGUAGES>) => {
-    const newLanguage = event.target.value as LANGUAGES
-    dispatch(setLanguage(newLanguage))
+  const changeLanguage = (event: SelectChangeEvent<ILanguage['code']>) => {
+    const newLanguageCode = event.target.value as ILanguage['code']
+    LANGUAGES.forEach((language) => {
+      if (language.code === newLanguageCode) {
+        dispatch(setLanguage(language))
+      }
+    })
   }
 
   useEffect(() => {
-    i18n.changeLanguage(language)
-  }, [language, i18n])
+    i18n.changeLanguage(languageCode)
+  }, [languageCode, i18n])
+
   return (
     <Box sx={{ p: 1, mt: 1, width: '100%' }}>
       <FormControl fullWidth>
@@ -35,14 +41,14 @@ const LanguageSelector = (): JSX.Element => {
         <Select
           labelId='language-select-label'
           id='language-select'
-          value={language}
+          value={languageCode}
           onChange={changeLanguage}
           label='Language'
           startAdornment={<Translate sx={{ mr: 1, ml: -0.5 }} />}
         >
           {Object.values(LANGUAGES).map((value) => (
-            <MenuItem key={`lang_${value}`} value={value}>
-              {value}
+            <MenuItem key={`lang_${value.code}`} value={value.code}>
+              {value.title}
             </MenuItem>
           ))}
         </Select>
