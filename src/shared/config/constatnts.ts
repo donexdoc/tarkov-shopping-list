@@ -1,4 +1,3 @@
-import { ItemFavoriteCategory } from '../types/itemFavoriteCategory'
 import { ILanguage } from '../types/language'
 
 export const APP_DRAWER_WIDTH = 240
@@ -21,26 +20,3 @@ export const LANGUAGE_RU: ILanguage = {
 }
 
 export const LANGUAGES: ILanguage[] = [LANGUAGE_EN, LANGUAGE_RU]
-
-export const FAVORITE_CATEGORIES: ItemFavoriteCategory[] = [
-  {
-    id: 'other',
-    name: 'ItemFavorites.Other',
-  },
-  {
-    id: 'tasks',
-    name: 'ItemFavorites.Tasks',
-  },
-  {
-    id: 'equipment',
-    name: 'ItemFavorites.Equipment',
-  },
-  {
-    id: 'hideout',
-    name: 'ItemFavorites.Hideout',
-  },
-  {
-    id: 'barter',
-    name: 'ItemFavorites.Barter',
-  },
-]

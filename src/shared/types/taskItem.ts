@@ -1,5 +1,5 @@
 import { Item } from './item.js'
-import { ItemFavoriteCategory } from './itemFavoriteCategory.js'
+import { IItemFavoriteCategory } from './itemFavoriteCategory.js'
 import { Task } from './task.js'
 
 export interface TaskItem {
@@ -7,5 +7,5 @@ export interface TaskItem {
   itemId: Item['id']
   count?: number
   foundInRaid?: boolean
-  favoriteCategory?: ItemFavoriteCategory
+  favoriteCategory?: IItemFavoriteCategory
 }

@@ -8,7 +8,7 @@ import TrackedItem from './TrackedItem/TrackedItem'
 
 const TrackedItems = (): JSX.Element => {
   const trackedItems = useAppSelector(
-    (state) => state.shoppingList.trackedItems
+    (state) => state.shoppingListReducer.trackedItems
   )
   const { t } = useTranslation()
 

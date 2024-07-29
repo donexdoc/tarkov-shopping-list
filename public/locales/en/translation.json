@@ -1,6 +1,7 @@
 {
   "AppDrawerContent.navigation.tracker": "Item Tracker",
   "AppDrawerContent.navigation.supportProject": "Support the Project",
+  "AppDrawerContent.navigation.settings": "Settings",
 
   "TrackedItems.emptyList.title": "It's empty here for now",
   "TrackedItems.emptyList.tip": "Add items to track to see them here",
@@ -23,6 +24,14 @@
   "SupportProjectPage.supportTitle": "How you can help:",
   "SupportProjectPage.button.support": "Subscribe / donate on Boosty",
   "SupportProjectPage.gratitude": "Any support is greatly appreciated and will help make this project even better. Thank you for your interest and support!",
+
+  "SettingsPage.mainTitle": "Settings",
+  "SettingsPage.languageTitle": "Language",
+  "SettingsPage.trackerSettings": "Tracker settings",
+
+  "Settings.autoFoundInRaid": "Auto add with 'Found in raid' mark",
+  "Settings.autoPriceCheck": "Auto checking price for items in list",
+  "Settings.defaultItemCategory": "Default category for new items",
 
   "ExistsFeaturesNotice.text": "BSG has already implemented similar functionality in the game. However, if you want this project to develop further, you can support it, and then the project will continue to grow!",
 

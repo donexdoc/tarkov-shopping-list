@@ -3,13 +3,15 @@ import { TypedUseSelectorHook, useSelector } from 'react-redux'
 
 import appReducer from '@/app/model/app.slice'
 import itemsDataReducer from '@/entities/itemsData/slice'
-import shoppingList from '@/entities/shoppingList/slice'
+import shoppingListReducer from '@/entities/shoppingList/slice'
+import trackerSettingsReducer from '@/entities/trackerSettings/slice'
 
 export const store = configureStore({
   reducer: {
     appReducer,
     itemsDataReducer,
-    shoppingList,
+    shoppingListReducer,
+    trackerSettingsReducer,
   },
   devTools: process.env.NODE_ENV === 'development',
 })

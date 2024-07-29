@@ -1,6 +1,5 @@
 import { Box, Divider } from '@mui/material'
 
-import LanguageSelector from '@/features/languageSelector/ui/LanguageSelector'
 import Navigation from '@/features/navigation/ui/Navigation'
 import AppLogo from '@/shared/ui/AppLogo/AppLogo'
 import VersionDisplay from '@/shared/ui/AppVersion/AppVersion'
@@ -22,11 +21,6 @@ export default function AppDrawerContent(): JSX.Element {
       </Box>
       <Divider />
       <Navigation />
-      <Divider />
-
-      <Box width='100%'>
-        <LanguageSelector />
-      </Box>
 
       <Box
         sx={{
