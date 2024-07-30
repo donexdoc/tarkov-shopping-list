@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { loadItems } from '@/entities/itemsData/slice'
-import { APP_TITLE, LANGUAGE_EN, PAGES } from '@/shared/config/constatnts'
+import { APP_TITLE, LANGUAGE_EN } from '@/shared/config/constatnts'
 import { isDevMode } from '@/shared/lib/debug/envCheck'
 import { ILanguage } from '@/shared/types/language'
 
@@ -12,7 +12,6 @@ export const SLICE_NAME = 'app'
 
 const defaultInitialState: IAppInitialState = {
   drawerState: false,
-  currentPage: PAGES.mainList,
   appTitle: APP_TITLE,
   language: LANGUAGE_EN,
 }
@@ -70,10 +69,7 @@ export const appSlice = createSlice({
       state.drawerState = !state.drawerState
       saveState(state)
     },
-    setCurrentPage: (state, action: PayloadAction<PAGES>) => {
-      state.currentPage = action.payload
-      saveState(state)
-    },
+
     setAppTitle: (state, action: PayloadAction<string>) => {
       state.appTitle = action.payload
       saveState(state)
@@ -90,10 +86,6 @@ export const appSlice = createSlice({
   },
 })
 
-export const {
-  setDrawerState,
-  toggleDrawerState,
-  setCurrentPage,
-  setAppTitle,
-} = appSlice.actions
+export const { setDrawerState, toggleDrawerState, setAppTitle } =
+  appSlice.actions
 export default appSlice.reducer
