@@ -41,5 +41,7 @@
   "ItemFavorites.Hideout": "Hideout",
   "ItemFavorites.Barter": "Barter",
 
+  "App.featureInDevelop": "Feature in develop",
+
   "test": "Test message"
 }

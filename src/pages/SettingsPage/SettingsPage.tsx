@@ -1,8 +1,15 @@
-import { Box, FormControlLabel, Switch, Typography } from '@mui/material'
+import {
+  Box,
+  FormControlLabel,
+  Switch,
+  Tooltip,
+  Typography,
+} from '@mui/material'
 import { useTranslation } from 'react-i18next'
 
-import DefaultCategorySelector from '@/features/defaultCategorySelector/ui/DefaultCategorySelector'
-import LanguageSelector from '@/features/languageSelector/ui/LanguageSelector'
+import AutoInRaidSwitch from '@/features/settings/autoInRaidSwitch/ui/AutoInRaidSwitch'
+import DefaultCategorySelector from '@/features/settings/defaultCategorySelector/ui/DefaultCategorySelector'
+import LanguageSelector from '@/features/settings/languageSelector/ui/LanguageSelector'
 
 const SettingsPage = (): JSX.Element => {
   const { t } = useTranslation()
@@ -27,22 +34,22 @@ const SettingsPage = (): JSX.Element => {
           {t('SettingsPage.trackerSettings')}
         </Typography>
         <Box sx={{ mt: 2 }}>
-          <FormControlLabel
-            disabled
-            control={<Switch defaultChecked />}
-            label={t('Settings.autoFoundInRaid')}
-          />
+          <AutoInRaidSwitch />
         </Box>
-        <Box sx={{ mt: 2 }}>
-          <FormControlLabel
-            disabled
-            control={<Switch />}
-            label={t('Settings.autoPriceCheck')}
-          />
-        </Box>
-        <Box sx={{ mt: 2 }}>
-          <DefaultCategorySelector />
-        </Box>
+        <Tooltip title={t('App.featureInDevelop')} placement='top'>
+          <Box sx={{ mt: 2 }}>
+            <FormControlLabel
+              disabled
+              control={<Switch />}
+              label={t('Settings.autoPriceCheck')}
+            />
+          </Box>
+        </Tooltip>
+        <Tooltip title={t('App.featureInDevelop')} placement='top'>
+          <Box sx={{ mt: 2 }}>
+            <DefaultCategorySelector />
+          </Box>
+        </Tooltip>
       </Box>
     </Box>
   )

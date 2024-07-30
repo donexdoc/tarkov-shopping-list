@@ -41,5 +41,7 @@
   "ItemFavorites.Hideout": "Убежище",
   "ItemFavorites.Barter": "Бартер",
 
+  "App.featureInDevelop": "В разработке",
+
   "test": "Тестовое сообщение"
 }

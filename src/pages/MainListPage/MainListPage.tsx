@@ -17,6 +17,9 @@ const MainListPage = (): JSX.Element => {
   const { t } = useTranslation()
 
   const gameItems = useAppSelector((state) => state.itemsDataReducer.elements)
+  const autoFoundInRaid = useAppSelector(
+    (store) => store.trackerSettingsReducer.autoFoundInRaid
+  )
   const dispatch = useDispatch<AppDispatch>()
 
   const [queryLine, setQueryLine] = useState('')
@@ -63,7 +66,7 @@ const MainListPage = (): JSX.Element => {
       addTrackedItem({
         item: newItem,
         count: 1,
-        foundInRaid: true,
+        foundInRaid: autoFoundInRaid,
       })
     )
     onSearchClear()
