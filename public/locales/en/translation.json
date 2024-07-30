@@ -5,6 +5,7 @@
 
   "TrackedItems.emptyList.title": "It's empty here for now",
   "TrackedItems.emptyList.tip": "Add items to track to see them here",
+  "TrackedItems.foundInRaidButton.tip": "Found in raid mark",
 
   "SupportProjectWidget.button": "Support the project",
   "MainListPage.mainTitle": "Item List",

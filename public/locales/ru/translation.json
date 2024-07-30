@@ -5,6 +5,7 @@
 
   "TrackedItems.emptyList.title": "Пока что тут пусто",
   "TrackedItems.emptyList.tip": "Добавьте предметы для отслеживания, чтобы увидеть их здесь",
+  "TrackedItems.foundInRaidButton.tip": "Отметка 'Найдено в рейде'",
 
   "SupportProjectWidget.button": "Поддержать проект",
   "MainListPage.mainTitle": "Список предметов",
