@@ -17,7 +17,9 @@ const SettingsPage = (): JSX.Element => {
         <Typography variant='h6' gutterBottom>
           {t('SettingsPage.languageTitle')}
         </Typography>
-        <LanguageSelector />
+        <Box sx={{ mt: 2 }}>
+          <LanguageSelector />
+        </Box>
       </Box>
 
       <Box sx={{ mt: 2 }}>

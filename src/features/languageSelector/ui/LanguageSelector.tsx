@@ -1,6 +1,5 @@
 import { Translate } from '@mui/icons-material'
 import {
-  Box,
   FormControl,
   InputLabel,
   MenuItem,
@@ -35,25 +34,23 @@ const LanguageSelector = (): JSX.Element => {
   }, [languageCode, i18n])
 
   return (
-    <Box sx={{ p: 1, mt: 1, width: '100%' }}>
-      <FormControl fullWidth>
-        <InputLabel id='language-select-label'>Language</InputLabel>
-        <Select
-          labelId='language-select-label'
-          id='language-select'
-          value={languageCode}
-          onChange={changeLanguage}
-          label='Language'
-          startAdornment={<Translate sx={{ mr: 1, ml: -0.5 }} />}
-        >
-          {Object.values(LANGUAGES).map((value) => (
-            <MenuItem key={`lang_${value.code}`} value={value.code}>
-              {value.title}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </Box>
+    <FormControl fullWidth>
+      <InputLabel id='language-select-label'>Language</InputLabel>
+      <Select
+        labelId='language-select-label'
+        id='language-select'
+        value={languageCode}
+        onChange={changeLanguage}
+        label='Language'
+        startAdornment={<Translate sx={{ mr: 1, ml: -0.5 }} />}
+      >
+        {Object.values(LANGUAGES).map((value) => (
+          <MenuItem key={`lang_${value.code}`} value={value.code}>
+            {value.title}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   )
 }
 
