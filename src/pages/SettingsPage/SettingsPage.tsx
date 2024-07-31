@@ -7,9 +7,9 @@ import {
 } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 
-import AutoInRaidSwitch from '@/features/settings/autoInRaidSwitch/ui/AutoInRaidSwitch'
-import DefaultCategorySelector from '@/features/settings/defaultCategorySelector/ui/DefaultCategorySelector'
-import LanguageSelector from '@/features/settings/languageSelector/ui/LanguageSelector'
+import AutoInRaidSwitch from '@/features/settings/ui/AutoInRaidSwitch/AutoInRaidSwitch'
+import DefaultCategorySelector from '@/features/settings/ui/DefaultCategorySelector/DefaultCategorySelector'
+import LanguageSelector from '@/features/settings/ui/LanguageSelector/LanguageSelector'
 
 const SettingsPage = (): JSX.Element => {
   const { t } = useTranslation()

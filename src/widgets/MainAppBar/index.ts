@@ -1,1 +1,1 @@
-export type { IMainAppBarProps } from './models/types'
+export * from './models/types'
