@@ -13,15 +13,15 @@ import { useDispatch } from 'react-redux'
 import { setLanguage } from '@/app/model/app.slice'
 import { AppDispatch, useAppSelector } from '@/app/store'
 import { LANGUAGES } from '@/shared/config/constatnts'
-import { ILanguage } from '@/shared/types/language'
+import { Language } from '@/shared/types/language'
 
 const LanguageSelector = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>()
   const languageCode = useAppSelector((store) => store.appReducer.language.code)
   const { i18n } = useTranslation()
 
-  const changeLanguage = (event: SelectChangeEvent<ILanguage['code']>) => {
-    const newLanguageCode = event.target.value as ILanguage['code']
+  const changeLanguage = (event: SelectChangeEvent<Language['code']>) => {
+    const newLanguageCode = event.target.value as Language['code']
     LANGUAGES.forEach((language) => {
       if (language.code === newLanguageCode) {
         dispatch(setLanguage(language))

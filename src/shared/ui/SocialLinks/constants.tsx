@@ -1,6 +1,6 @@
 import { GitHub, YouTube } from '@mui/icons-material'
 
-import { Discord } from '../icons/Discord'
+import { Discord } from '../icons'
 import { ILinkElement } from './types'
 
 export const SOCIAL_LINKS: ILinkElement[] = [

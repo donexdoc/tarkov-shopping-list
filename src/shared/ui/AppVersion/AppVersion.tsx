@@ -1,9 +1,8 @@
 import { Typography } from '@mui/material'
-import React from 'react'
 
 import { useAppVersion } from '@/shared/lib/hooks/useAppVersion'
 
-const VersionDisplay: React.FC = () => {
+const VersionDisplay = (): JSX.Element => {
   const version = useAppVersion()
 
   return (

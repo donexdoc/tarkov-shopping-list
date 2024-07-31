@@ -1,7 +1,7 @@
 import { Box, CssBaseline, Toolbar } from '@mui/material'
 
 import { AppLayoutProvider } from '@/app/providers/AppLayoutProvider/AppLayoutProvider'
-import { APP_DRAWER_WIDTH } from '@/shared/config/constatnts'
+import { APP_DRAWER_WIDTH } from '@/shared/config'
 import AppDrawer from '@/widgets/AppDrawer/ui/AppDrawer'
 import MainAppBar from '@/widgets/MainAppBar/ui/MainAppBar'
 

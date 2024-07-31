@@ -4,10 +4,10 @@ import { useDispatch } from 'react-redux'
 
 import { setDrawerState } from '@/app/model/app.slice'
 import { AppDispatch, useAppSelector } from '@/app/store'
-import { APP_DRAWER_WIDTH } from '@/shared/config/constatnts'
+import { APP_DRAWER_WIDTH } from '@/shared/config'
 import AppDrawerContent from '@/widgets/AppDrawerContent/ui/AppDrawerContent'
 
-import { IAppDrawerProps } from '../model/types'
+import { IAppDrawerProps } from './AppDrawer.props'
 
 export default function AppDrawer({ window }: IAppDrawerProps): JSX.Element {
   const drawerState = useAppSelector((state) => state.appReducer.drawerState)

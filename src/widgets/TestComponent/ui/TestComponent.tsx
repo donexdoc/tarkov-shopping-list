@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 
-import { FAVORITE_CATEGORIES } from '@/shared/ui/CategorySelector/constants'
+import { FAVORITE_CATEGORIES } from '@/shared/constants'
 
 const TestComponent = (): JSX.Element => {
   const { t } = useTranslation()

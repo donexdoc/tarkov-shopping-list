@@ -8,10 +8,10 @@ import {
 } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 
+import { FAVORITE_CATEGORIES } from '@/shared/constants'
 import { IItemFavoriteCategory } from '@/shared/types/itemFavoriteCategory'
 
-import { FAVORITE_CATEGORIES } from './constants'
-import { ICategorySelector } from './types'
+import { ICategorySelector } from './CategorySelector.props'
 
 const CategorySelector = ({
   category,

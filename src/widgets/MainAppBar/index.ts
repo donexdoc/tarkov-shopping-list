@@ -1,1 +1,1 @@
-export * from './models/types'
+export { default as MainAppBar } from './ui/MainAppBar'

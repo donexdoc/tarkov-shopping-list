@@ -3,7 +3,7 @@ import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector/cjs
 import I18NextHttpBackend from 'i18next-http-backend'
 import { initReactI18next } from 'react-i18next'
 
-import { LANGUAGE_EN } from './constatnts'
+import { LANGUAGE_EN } from '../constants'
 
 i18next
   .use(I18NextHttpBackend)

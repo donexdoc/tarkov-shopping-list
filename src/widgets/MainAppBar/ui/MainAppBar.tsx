@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 
 import { toggleDrawerState } from '@/app/model/app.slice'
 import { AppDispatch, useAppSelector } from '@/app/store'
-import { APP_DRAWER_WIDTH } from '@/shared/config/constatnts'
+import { APP_DRAWER_WIDTH } from '@/shared/config'
 
 export default function MainAppBar(): JSX.Element {
   const dispatch = useDispatch<AppDispatch>()

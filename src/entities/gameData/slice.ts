@@ -5,7 +5,7 @@ import {
   PayloadAction,
 } from '@reduxjs/toolkit'
 
-import { ILanguage } from '@/shared/types/language'
+import { Language } from '@/shared/types/language'
 
 export interface GameDataInitialState<T> {
   elements: T[]
@@ -15,9 +15,9 @@ export interface GameDataInitialState<T> {
 
 export const createLoadElements = <T>(
   name: string,
-  importFunciton: (language: ILanguage) => Promise<T[]>
+  importFunciton: (language: Language) => Promise<T[]>
 ) => {
-  return createAsyncThunk(`${name}/gameData`, async (language: ILanguage) => {
+  return createAsyncThunk(`${name}/gameData`, async (language: Language) => {
     const elementsJson = await importFunciton(language)
     return elementsJson
   })

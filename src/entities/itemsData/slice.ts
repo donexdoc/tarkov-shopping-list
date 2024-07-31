@@ -1,5 +1,5 @@
 import { Item } from '@/shared/types/item'
-import { ILanguage } from '@/shared/types/language'
+import { Language } from '@/shared/types/language'
 
 import {
   createGameDataSlice,
@@ -14,7 +14,7 @@ const initialState: GameDataInitialState<Item> = {
   error: null,
 }
 
-const importItems = async (language: ILanguage) => {
+const importItems = async (language: Language) => {
   const response = await fetch(`/gameData/${language.code}/items.json`)
   return response.json()
 }

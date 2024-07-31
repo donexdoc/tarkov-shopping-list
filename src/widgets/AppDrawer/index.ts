@@ -1,1 +1,1 @@
-export type { IAppDrawerProps } from './model/types.ts'
+export { default as AppDrawer } from './ui/AppDrawer'

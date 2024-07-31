@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { loadItems } from '@/entities/itemsData/slice'
-import { APP_TITLE, LANGUAGE_EN } from '@/shared/config/constatnts'
+import { APP_TITLE } from '@/shared/config'
+import { LANGUAGE_EN } from '@/shared/constants'
 import { isDevMode } from '@/shared/lib/debug/envCheck'
-import { ILanguage } from '@/shared/types/language'
+import { Language } from '@/shared/types/language'
 
 import { RootState } from '../store'
 import { IAppInitialState } from './types'
@@ -45,13 +46,13 @@ export const initializeApp = createAsyncThunk(
   'app/initialize',
   async (_, { dispatch, getState }) => {
     const state = getState() as RootState
-    await dispatch(loadItems(state.appReducer.language as ILanguage))
+    await dispatch(loadItems(state.appReducer.language as Language))
   }
 )
 
 export const setLanguage = createAsyncThunk(
   'app/setLanguage',
-  async (language: ILanguage, { dispatch }) => {
+  async (language: Language, { dispatch }) => {
     await dispatch(loadItems(language))
     return language
   }
@@ -78,7 +79,7 @@ export const appSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(
       setLanguage.fulfilled,
-      (state, action: PayloadAction<ILanguage>) => {
+      (state, action: PayloadAction<Language>) => {
         state.language = action.payload
         saveState(state)
       }

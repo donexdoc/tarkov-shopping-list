@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+import { FAVORITE_CATEGORY_DEFAULT } from '@/shared/constants'
 import { isDevMode } from '@/shared/lib/debug/envCheck'
 import { IItemFavoriteCategory } from '@/shared/types/itemFavoriteCategory'
-import { FAVORITE_CATEGORY_DEFAULT } from '@/shared/ui/CategorySelector/constants'
 
 import ITrackerSettingsState from './types'
 
