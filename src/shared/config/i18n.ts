@@ -11,7 +11,7 @@ i18next
   .use(initReactI18next)
   .init({
     fallbackLng: LANGUAGE_EN.code,
-    debug: import.meta.env.MODE === 'development',
+    debug: import.meta.env.NODE_ENV === 'development',
     interpolation: {
       escapeValue: false,
     },

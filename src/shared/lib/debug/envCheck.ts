@@ -1,12 +1,12 @@
 export const isDevMode = () => {
-  if (import.meta.env.MODE === 'development') {
+  if (import.meta.env.NODE_ENV === 'development') {
     return true
   }
   return false
 }
 
 export const isProdMode = () => {
-  if (import.meta.env.MODE === 'production') {
+  if (import.meta.env.NODE_ENV === 'production') {
     return true
   }
   return false
