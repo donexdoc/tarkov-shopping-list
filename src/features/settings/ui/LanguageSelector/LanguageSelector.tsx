@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux'
 
 import { setLanguage } from '@/app/model/app.slice'
 import { AppDispatch, useAppSelector } from '@/app/store'
-import { LANGUAGES } from '@/shared/config/constatnts'
+import { LANGUAGES } from '@/shared/constants'
 import { Language } from '@/shared/types/language'
 
 const LanguageSelector = (): JSX.Element => {
